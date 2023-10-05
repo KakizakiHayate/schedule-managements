@@ -7,4 +7,5 @@ target 'ScheduleManagements' do
 
   # Pods for ScheduleManagements
   pod 'SwiftLint'
+  pod 'RealmSwift'
 end
