@@ -6,5 +6,5 @@ target 'ScheduleManagements' do
   use_frameworks!
 
   # Pods for ScheduleManagements
-
+  pod 'SwiftLint'
 end
