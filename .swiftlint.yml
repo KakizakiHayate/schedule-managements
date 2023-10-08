@@ -61,4 +61,5 @@ identifier_name:
     - GlobalAPIKey
     - vm
     - on
+    - _id
 reporter: "xcode" # reporter type (xcode, json, csv, checkstyle, codeclimate, junit, html, emoji, sonarqube, markdown, github-actions-logging, summary)
