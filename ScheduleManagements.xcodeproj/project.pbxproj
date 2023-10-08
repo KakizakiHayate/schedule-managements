@@ -7,8 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		751128622AD294B500DA71DA /* OneWeekView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751128612AD294B500DA71DA /* OneWeekView.swift */; };
+		751128642AD2959800DA71DA /* OneWeekViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751128632AD2959800DA71DA /* OneWeekViewModel.swift */; };
+		751128672AD29A3A00DA71DA /* RevisionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751128662AD29A3A00DA71DA /* RevisionView.swift */; };
+		7511286B2AD29BCC00DA71DA /* Monday.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7511286A2AD29BCC00DA71DA /* Monday.swift */; };
+		7511286E2AD29CD900DA71DA /* OneWeekSelectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7511286D2AD29CD900DA71DA /* OneWeekSelectView.swift */; };
+		751128722AD29E4200DA71DA /* Extension+Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751128712AD29E4200DA71DA /* Extension+Color.swift */; };
+		751128752AD2A31300DA71DA /* RealmCRUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751128742AD2A31300DA71DA /* RealmCRUD.swift */; };
+		751128782AD2B8AF00DA71DA /* DateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751128772AD2B8AF00DA71DA /* DateManager.swift */; };
 		75D2758F2ACDD83F004DC5A0 /* ScheduleManagementsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D2758E2ACDD83F004DC5A0 /* ScheduleManagementsApp.swift */; };
-		75D275912ACDD83F004DC5A0 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D275902ACDD83F004DC5A0 /* ContentView.swift */; };
 		75D275932ACDD842004DC5A0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 75D275922ACDD842004DC5A0 /* Assets.xcassets */; };
 		75D275962ACDD842004DC5A0 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 75D275952ACDD842004DC5A0 /* Preview Assets.xcassets */; };
 		DD45F48FA83046EFF381BB80 /* Pods_ScheduleManagements.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C2136BB1A5C820970159610 /* Pods_ScheduleManagements.framework */; };
@@ -17,9 +24,16 @@
 /* Begin PBXFileReference section */
 		2C2136BB1A5C820970159610 /* Pods_ScheduleManagements.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ScheduleManagements.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6E193B4B7F2508F8A69BA42D /* Pods-ScheduleManagements.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ScheduleManagements.release.xcconfig"; path = "Target Support Files/Pods-ScheduleManagements/Pods-ScheduleManagements.release.xcconfig"; sourceTree = "<group>"; };
+		751128612AD294B500DA71DA /* OneWeekView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneWeekView.swift; sourceTree = "<group>"; };
+		751128632AD2959800DA71DA /* OneWeekViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneWeekViewModel.swift; sourceTree = "<group>"; };
+		751128662AD29A3A00DA71DA /* RevisionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RevisionView.swift; sourceTree = "<group>"; };
+		7511286A2AD29BCC00DA71DA /* Monday.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Monday.swift; sourceTree = "<group>"; };
+		7511286D2AD29CD900DA71DA /* OneWeekSelectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneWeekSelectView.swift; sourceTree = "<group>"; };
+		751128712AD29E4200DA71DA /* Extension+Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+Color.swift"; sourceTree = "<group>"; };
+		751128742AD2A31300DA71DA /* RealmCRUD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmCRUD.swift; sourceTree = "<group>"; };
+		751128772AD2B8AF00DA71DA /* DateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateManager.swift; sourceTree = "<group>"; };
 		75D2758B2ACDD83F004DC5A0 /* ScheduleManagements.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ScheduleManagements.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		75D2758E2ACDD83F004DC5A0 /* ScheduleManagementsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleManagementsApp.swift; sourceTree = "<group>"; };
-		75D275902ACDD83F004DC5A0 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		75D275922ACDD842004DC5A0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		75D275952ACDD842004DC5A0 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		AC2E7F06AC1F7BCE815A0B54 /* Pods-ScheduleManagements.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ScheduleManagements.debug.xcconfig"; path = "Target Support Files/Pods-ScheduleManagements/Pods-ScheduleManagements.debug.xcconfig"; sourceTree = "<group>"; };
@@ -54,6 +68,89 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		7511285E2AD2927300DA71DA /* Screen */ = {
+			isa = PBXGroup;
+			children = (
+				751128602AD292C100DA71DA /* Common */,
+				7511286C2AD29C8400DA71DA /* OneWeekSelect */,
+				751128652AD29A1400DA71DA /* Revision */,
+			);
+			path = Screen;
+			sourceTree = "<group>";
+		};
+		7511285F2AD2927C00DA71DA /* Applecation */ = {
+			isa = PBXGroup;
+			children = (
+				75D2758E2ACDD83F004DC5A0 /* ScheduleManagementsApp.swift */,
+			);
+			path = Applecation;
+			sourceTree = "<group>";
+		};
+		751128602AD292C100DA71DA /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				751128612AD294B500DA71DA /* OneWeekView.swift */,
+				751128632AD2959800DA71DA /* OneWeekViewModel.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		751128652AD29A1400DA71DA /* Revision */ = {
+			isa = PBXGroup;
+			children = (
+				751128662AD29A3A00DA71DA /* RevisionView.swift */,
+			);
+			path = Revision;
+			sourceTree = "<group>";
+		};
+		751128682AD29ABC00DA71DA /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				751128692AD29B1F00DA71DA /* OneWeek */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		751128692AD29B1F00DA71DA /* OneWeek */ = {
+			isa = PBXGroup;
+			children = (
+				7511286A2AD29BCC00DA71DA /* Monday.swift */,
+			);
+			path = OneWeek;
+			sourceTree = "<group>";
+		};
+		7511286C2AD29C8400DA71DA /* OneWeekSelect */ = {
+			isa = PBXGroup;
+			children = (
+				7511286D2AD29CD900DA71DA /* OneWeekSelectView.swift */,
+			);
+			path = OneWeekSelect;
+			sourceTree = "<group>";
+		};
+		751128702AD29DE400DA71DA /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				751128712AD29E4200DA71DA /* Extension+Color.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		751128732AD2A27B00DA71DA /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				751128742AD2A31300DA71DA /* RealmCRUD.swift */,
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
+		751128762AD2B88300DA71DA /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				751128772AD2B8AF00DA71DA /* DateManager.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
 		75D275822ACDD83F004DC5A0 = {
 			isa = PBXGroup;
 			children = (
@@ -75,8 +172,12 @@
 		75D2758D2ACDD83F004DC5A0 /* ScheduleManagements */ = {
 			isa = PBXGroup;
 			children = (
-				75D2758E2ACDD83F004DC5A0 /* ScheduleManagementsApp.swift */,
-				75D275902ACDD83F004DC5A0 /* ContentView.swift */,
+				7511285F2AD2927C00DA71DA /* Applecation */,
+				751128702AD29DE400DA71DA /* Extension */,
+				751128732AD2A27B00DA71DA /* Util */,
+				751128762AD2B88300DA71DA /* Manager */,
+				751128682AD29ABC00DA71DA /* Model */,
+				7511285E2AD2927300DA71DA /* Screen */,
 				75D275922ACDD842004DC5A0 /* Assets.xcassets */,
 				75D275942ACDD842004DC5A0 /* Preview Content */,
 			);
@@ -224,8 +325,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				75D275912ACDD83F004DC5A0 /* ContentView.swift in Sources */,
+				751128672AD29A3A00DA71DA /* RevisionView.swift in Sources */,
+				751128752AD2A31300DA71DA /* RealmCRUD.swift in Sources */,
+				7511286B2AD29BCC00DA71DA /* Monday.swift in Sources */,
 				75D2758F2ACDD83F004DC5A0 /* ScheduleManagementsApp.swift in Sources */,
+				751128622AD294B500DA71DA /* OneWeekView.swift in Sources */,
+				751128782AD2B8AF00DA71DA /* DateManager.swift in Sources */,
+				7511286E2AD29CD900DA71DA /* OneWeekSelectView.swift in Sources */,
+				751128642AD2959800DA71DA /* OneWeekViewModel.swift in Sources */,
+				751128722AD29E4200DA71DA /* Extension+Color.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -284,7 +392,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -341,7 +449,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
