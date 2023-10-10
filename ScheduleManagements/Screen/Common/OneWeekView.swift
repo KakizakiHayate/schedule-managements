@@ -13,6 +13,7 @@ struct OneWeekView: View {
     @StateObject private var vm = OneWeekViewModel()
     @StateObject private var dateManager = DateManager.shared
     @ObservedResults(Monday.self) private var mondayModel
+//    @ObservedResults(Tuesday.self) private var tuestdayModel
 
     // MARK: - Body
     var body: some View {
@@ -67,31 +68,14 @@ struct OneWeekView: View {
                         //subjectArrayは、TextFieldのtext:の型がBinding<String>だから渡す必要がある
                         RevisionView(subjectArray: $vm.subjectArray,
                                      showRevisionSheet: $vm.showRevisionSheet,
-                                     date: $vm.trainTime,
+                                     trainTime: $vm.trainTime,
                                      changeObjectInt: $vm.chageObjectInt)
                     }
                 }
             }
         }
         .onAppear {
-            guard let localRealm = try? Realm() else { return }
-            let obj = localRealm.objects(Monday.self)
-            //データベースに値が入っているなら保存されたデータをself.変数に代入、空なら初期値を代入
-            if obj.isEmpty {
-                vm.subjectArray = ["","","","","",""]
-                vm.trainTime = Date()
-            } else {
-                //ListのデータをsubjectArrayに代入する。
-                //subjectArrayは、TextFieldのtext:の型がBinding<String>だから代入する必要がある。
-                if let schedule = mondayModel.first {
-                    for subject in schedule.monDayList {
-                        vm.subjectArray.append(subject)
-                    }
-                }
-                //保存されたdateをself.dateに代入
-                let objFirst = localRealm.objects(Monday.self).first!
-                vm.trainTime = objFirst.date
-            }
+            vm.readSchedule(weekModel: Monday.self)
         }
     } // body
 } // view

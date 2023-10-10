@@ -19,28 +19,15 @@ import RealmSwift
 
 extension OneWeekViewModel {
     // MARK: - Methods
-    func readSchedule() {
-        let day = "月"
-        switch day {
-        case "月":
-            let monday = Monday()
-            guard let schedule = monday.readMonday() else {
-                print("データベースから取得できませんでした")
-                return
-            }
-            if (schedule.realm!.isEmpty) {
-                print("true")
-                schedule.monDayList.forEach {
-                    subjectArray.append($0)
-                }
-                trainTime = schedule.date
-            } else {
-                subjectArray = ["","","","","",""]
-                trainTime = Date()
-            }
-            // 最終的にsubjectArrayに入れる
-        default:
-            break
+    // Mondayなどを一つのclassにまとめるといいかも
+    func readSchedule<T: Object>(weekModel: T.Type) where T: Monday {
+        guard let localRealm = try? Realm() else { return }
+        if let objectFirstRecord = localRealm.objects(weekModel).last {
+            subjectArray = objectFirstRecord.monDayList.map { $0 }
+            trainTime = objectFirstRecord.trainTime
+        } else {
+            subjectArray = ["","","","","",""] // 初期値は、6限までの設定にするため
+            trainTime = Date() // 初期は、現在時刻を入れておく
         }
     }
 }

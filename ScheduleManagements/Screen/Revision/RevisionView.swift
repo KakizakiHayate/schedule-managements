@@ -13,7 +13,7 @@ struct RevisionView: View {
     @State private var showingAlertMinus = false
     @Binding var subjectArray: [String]
     @Binding var showRevisionSheet: Bool
-    @Binding var date: Date
+    @Binding var trainTime: Date
     @Binding var changeObjectInt: Int
 
     var body: some View {
@@ -30,7 +30,7 @@ struct RevisionView: View {
                         changeObjectReset(changeObjectInt: changeObjectInt)
 
                         subjectArray = ["","","","","",""]
-                        date = Date()
+                        trainTime = Date()
                     }) {
                         Text("リセット").foregroundColor(Color.customColorPurple).padding(.trailing)
                     }
@@ -104,14 +104,13 @@ struct RevisionView: View {
 
                 Spacer()
 
-                DatePicker("電車の時間", selection: $date, displayedComponents: .hourAndMinute)
+                DatePicker("電車の時間", selection: $trainTime, displayedComponents: .hourAndMinute)
                     .padding()
 
                 Button(action: {
-
                     //設定完了したらsheetを閉じる
                     showRevisionSheet = false
-
+                    Monday().addMonDay(subjectArray: subjectArray, trainTime: trainTime)
                     changeObjectComplete(changeObjectInt: changeObjectInt)
 
                 }) {
@@ -145,7 +144,7 @@ struct RevisionView: View {
 #Preview {
     RevisionView(subjectArray: .constant([]),
                  showRevisionSheet: .constant(false),
-                 date: .constant(Date()),
+                 trainTime: .constant(Date()),
                  changeObjectInt: .constant(0)
     )
 }

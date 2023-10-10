@@ -15,9 +15,12 @@
 		751128722AD29E4200DA71DA /* Extension+Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751128712AD29E4200DA71DA /* Extension+Color.swift */; };
 		751128752AD2A31300DA71DA /* RealmCRUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751128742AD2A31300DA71DA /* RealmCRUD.swift */; };
 		751128782AD2B8AF00DA71DA /* DateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751128772AD2B8AF00DA71DA /* DateManager.swift */; };
+		75482C0D2AD5132300B3C238 /* MigrationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75482C0C2AD5132300B3C238 /* MigrationManager.swift */; };
 		75D2758F2ACDD83F004DC5A0 /* ScheduleManagementsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D2758E2ACDD83F004DC5A0 /* ScheduleManagementsApp.swift */; };
 		75D275932ACDD842004DC5A0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 75D275922ACDD842004DC5A0 /* Assets.xcassets */; };
 		75D275962ACDD842004DC5A0 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 75D275952ACDD842004DC5A0 /* Preview Assets.xcassets */; };
+		75FA20022AD30A56000B5B86 /* Tuesday.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75FA20012AD30A56000B5B86 /* Tuesday.swift */; };
+		75FA20042AD30A60000B5B86 /* Wednesday.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75FA20032AD30A60000B5B86 /* Wednesday.swift */; };
 		DD45F48FA83046EFF381BB80 /* Pods_ScheduleManagements.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C2136BB1A5C820970159610 /* Pods_ScheduleManagements.framework */; };
 /* End PBXBuildFile section */
 
@@ -32,10 +35,13 @@
 		751128712AD29E4200DA71DA /* Extension+Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+Color.swift"; sourceTree = "<group>"; };
 		751128742AD2A31300DA71DA /* RealmCRUD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmCRUD.swift; sourceTree = "<group>"; };
 		751128772AD2B8AF00DA71DA /* DateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateManager.swift; sourceTree = "<group>"; };
+		75482C0C2AD5132300B3C238 /* MigrationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MigrationManager.swift; sourceTree = "<group>"; };
 		75D2758B2ACDD83F004DC5A0 /* ScheduleManagements.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ScheduleManagements.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		75D2758E2ACDD83F004DC5A0 /* ScheduleManagementsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleManagementsApp.swift; sourceTree = "<group>"; };
 		75D275922ACDD842004DC5A0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		75D275952ACDD842004DC5A0 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		75FA20012AD30A56000B5B86 /* Tuesday.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tuesday.swift; sourceTree = "<group>"; };
+		75FA20032AD30A60000B5B86 /* Wednesday.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wednesday.swift; sourceTree = "<group>"; };
 		AC2E7F06AC1F7BCE815A0B54 /* Pods-ScheduleManagements.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ScheduleManagements.debug.xcconfig"; path = "Target Support Files/Pods-ScheduleManagements/Pods-ScheduleManagements.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -115,6 +121,8 @@
 			isa = PBXGroup;
 			children = (
 				7511286A2AD29BCC00DA71DA /* Monday.swift */,
+				75FA20012AD30A56000B5B86 /* Tuesday.swift */,
+				75FA20032AD30A60000B5B86 /* Wednesday.swift */,
 			);
 			path = OneWeek;
 			sourceTree = "<group>";
@@ -147,6 +155,7 @@
 			isa = PBXGroup;
 			children = (
 				751128772AD2B8AF00DA71DA /* DateManager.swift */,
+				75482C0C2AD5132300B3C238 /* MigrationManager.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -330,9 +339,12 @@
 				7511286B2AD29BCC00DA71DA /* Monday.swift in Sources */,
 				75D2758F2ACDD83F004DC5A0 /* ScheduleManagementsApp.swift in Sources */,
 				751128622AD294B500DA71DA /* OneWeekView.swift in Sources */,
+				75FA20042AD30A60000B5B86 /* Wednesday.swift in Sources */,
+				75FA20022AD30A56000B5B86 /* Tuesday.swift in Sources */,
 				751128782AD2B8AF00DA71DA /* DateManager.swift in Sources */,
 				7511286E2AD29CD900DA71DA /* OneWeekSelectView.swift in Sources */,
 				751128642AD2959800DA71DA /* OneWeekViewModel.swift in Sources */,
+				75482C0D2AD5132300B3C238 /* MigrationManager.swift in Sources */,
 				751128722AD29E4200DA71DA /* Extension+Color.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

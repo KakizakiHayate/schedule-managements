@@ -6,9 +6,17 @@
 //
 
 import SwiftUI
+import RealmSwift
 
 @main
-struct ScheduleManagementsApp: App {
+struct ScheduleManagementsApp: SwiftUI.App {
+    // MARK: - Property Wrappers
+    @ObservedObject private var migrationManager = MigrationManager.shared
+    // MARK: initialize
+    init() {
+        let config = Realm.Configuration(schemaVersion: migrationManager.version)
+        Realm.Configuration.defaultConfiguration = config
+    }
     // MARK: - Body
     var body: some Scene {
         WindowGroup {

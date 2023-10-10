@@ -11,19 +11,21 @@ import RealmSwift
 class Monday: Object {
     @Persisted(primaryKey: true) var _id: ObjectId
     @Persisted var monDayList = List<String>()
-    @Persisted var date: Date
+    @Persisted var trainTime: Date
 }
 
 extension Monday: ObjectKeyIdentifiable {}
 
 extension Monday {
     // MARK: - Methods
-    func addMonDay(subjectArray: [String], date: Date) {
+    func addMonDay(subjectArray: [String], trainTime: Date) {
+        // TODO: - ここは、他のインスタンス生成方法があれば置き換える
+        let monday = Monday()
         subjectArray.forEach {
-            self.monDayList.append($0)
+            monday.monDayList.append($0)
         }
-        self.date = date
-        RealmCRUD.realmAdd(weekModel: self)
+        monday.trainTime = trainTime
+        RealmCRUD.realmAdd(weekModel: monday)
     }
 
     func updateMonDay(subjectArray: [String], date: Date) {
