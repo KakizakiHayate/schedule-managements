@@ -50,7 +50,7 @@ extension RealmCRUD {
 
     class func realmRead<T: Object>(weekModel: T.Type) -> T? {
         guard let localRealm = try? Realm() else { return nil }
-        guard let firstObject = localRealm.objects(weekModel).first else { return nil }
-        return firstObject
+        guard let lastObject = localRealm.objects(weekModel).last else { return nil }
+        return lastObject
     }
 }

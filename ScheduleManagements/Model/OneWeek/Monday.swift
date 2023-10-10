@@ -48,24 +48,14 @@ extension Monday {
         RealmCRUD.realmDelete(weekModel: Self.self)
     }
 
-    func readMonday() -> Monday? {
-        return RealmCRUD.realmRead(weekModel: Self.self) ?? nil
-//        let obj = localRealm.objects(Monday.self)
-//        //データベースに値が入っているなら保存されたデータをself.変数に代入、空なら初期値を代入
-//        if obj.isEmpty {
-//            self.subjectArray = ["","","","","",""]
-//            self.date = Date()
-//        } else {
-//            //ListのデータをsubjectArrayに代入する。
-//            //subjectArrayは、TextFieldのtext:の型がBinding<String>だから代入する必要がある。
-//            if let schedule = mondayModel.first {
-//                for subject in schedule.monDayList {
-//                    subjectArray.append(subject)
-//                }
-//            }
-//            //保存されたdateをself.dateに代入
-//            let objFirst = localRealm.objects(Monday.self).first!
-//            self.date = objFirst.date
-//        }
+    func readMonday() -> (List<String>, Date) {
+        guard let lastObject = RealmCRUD.realmRead(weekModel: Self.self) else {
+            let emptyList = List<String>()
+            for _ in  0 ..< 6 {
+                emptyList.append("")
+            }
+            return (emptyList, Date())
+        }
+        return (lastObject.monDayList, lastObject.trainTime)
     }
 }
