@@ -9,7 +9,7 @@ import Foundation
 
 final class MigrationManager: ObservableObject {
     // MARK: - Property Wrappers
-    @Published private(set) var version = UInt64(1)
+    @Published private(set) var version = UInt64(2)
     // MARK: - Properties
     static let shared = MigrationManager()
     private init() {}
