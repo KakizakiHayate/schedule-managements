@@ -7,7 +7,9 @@
 
 import Foundation
 import RealmSwift
-//
-//class Tuesday: Object {
-//
-//}
+
+class Tuesday: Object, WeekDay {
+    @Persisted(primaryKey: true) var _id: ObjectId
+    @Persisted var scheduleList = List<String>()
+    @Persisted var trainTime: Date
+}
