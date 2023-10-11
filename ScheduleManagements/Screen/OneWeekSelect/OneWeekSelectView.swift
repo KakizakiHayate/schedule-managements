@@ -15,7 +15,7 @@ struct OneWeekSelectView: View {
                                startPoint: .top,
                                endPoint: .bottom)
                 .ignoresSafeArea()
-                VStack{
+                VStack {
                     HStack {
                         
                         VStack {
@@ -84,8 +84,8 @@ struct OneWeekSelectView: View {
                                 
                                 VStack {
                                     NavigationLink {
-                                        OneWeekView()
-                                        
+                                        OneWeekView<Monday>()
+
                                     } label: {
                                         Text("月")
                                             .font(.title)

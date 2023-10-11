@@ -8,12 +8,17 @@
 import SwiftUI
 import RealmSwift
 
-struct OneWeekView: View {
+struct OneWeekView<T: Object & WeekDay>: View {
     // MARK: - Property Wrappers
-    @StateObject private var vm = OneWeekViewModel()
+    @ObservedObject private var vm = OneWeekViewModel()
     @StateObject private var dateManager = DateManager.shared
-    @ObservedResults(Monday.self) private var mondayModel
-//    @ObservedResults(Tuesday.self) private var tuestdayModel
+    // MARK: - Properties
+    private var weekDayModel: T
+
+    // MARK: - Initialize
+    init() {
+        weekDayModel = T.init()
+    }
 
     // MARK: - Body
     var body: some View {
@@ -22,7 +27,6 @@ struct OneWeekView: View {
                 ZStack(alignment: .bottomTrailing) {
                     List {
                         Section {
-                            //保存されたListを表示する。subjectArrayにListを代入している。
                             ForEach(0 ..< vm.subjectArray.count, id: \.self) { subject in
                                 VStack {
                                     //+1すると\(subject + 1)が1始まりになる。
@@ -41,8 +45,8 @@ struct OneWeekView: View {
                                 Image(systemName: "train.side.front.car")
                                     .foregroundColor(Color.customColorPurple)
                                     .font(.system(size: 30.0))
-                                //dateを表示させる。
-                                if mondayModel.isEmpty {
+                                // TODO: ここの判定は修正が必要
+                                if vm.trainTime == Date() {
                                     Text("電車の時刻が未設定です")
                                 } else {
                                     Text("\(dateManager.sharedDate().string(from: vm.trainTime))の電車です")
@@ -75,11 +79,11 @@ struct OneWeekView: View {
             }
         }
         .onAppear {
-            vm.readSchedule(weekModel: Monday.self)
+            vm.readSchedule(weekDayModel: weekDayModel)
         }
     } // body
 } // view
 
 #Preview {
-    OneWeekView()
+    OneWeekView<Monday>()
 }

@@ -15,14 +15,12 @@ class OneWeekViewModel: ObservableObject {
     @Published var trainTime = Date()
     @Published var chageObjectInt = 1
     @Published var subjectArray = [String]()
-
 }
 // [String],Date型が返ってくれば格納できる
 extension OneWeekViewModel {
     // MARK: - Methods
-    func readSchedule<T: Object>(weekModel: T.Type) {
-        let monday = Monday()
-        let (mondayList, trainTime) = monday.readMonday()
+    func readSchedule<T: Object & WeekDay>(weekDayModel: T) {
+        let (mondayList, trainTime) = weekDayModel.readSchedule(weekModel: weekDayModel)
         subjectArray = mondayList.map { $0 }
         self.trainTime = trainTime
     }
