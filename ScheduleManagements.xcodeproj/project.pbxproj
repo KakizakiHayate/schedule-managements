@@ -130,12 +130,12 @@
 		751128682AD29ABC00DA71DA /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				751128692AD29B1F00DA71DA /* OneWeek */,
+				751128692AD29B1F00DA71DA /* Weekdays */,
 			);
 			path = Model;
 			sourceTree = "<group>";
 		};
-		751128692AD29B1F00DA71DA /* OneWeek */ = {
+		751128692AD29B1F00DA71DA /* Weekdays */ = {
 			isa = PBXGroup;
 			children = (
 				7511286A2AD29BCC00DA71DA /* Monday.swift */,
@@ -146,7 +146,7 @@
 				75482C262AD811A100B3C238 /* Saturday.swift */,
 				75482C282AD811B400B3C238 /* Sunday.swift */,
 			);
-			path = OneWeek;
+			path = Weekdays;
 			sourceTree = "<group>";
 		};
 		7511286C2AD29C8400DA71DA /* OneWeekSelect */ = {
