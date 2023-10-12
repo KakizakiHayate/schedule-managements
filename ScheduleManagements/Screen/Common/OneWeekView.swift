@@ -9,7 +9,7 @@ import SwiftUI
 import RealmSwift
 
 /// 共通で使う教科と電車の時刻一覧画面
-struct OneWeekView<T: Object & WeekDay>: View {
+struct OneWeekView<T: WeekDay>: View {
     // MARK: - Property Wrappers
     @Binding var weekday: String
     @ObservedObject private var vm = OneWeekViewModel<T>()

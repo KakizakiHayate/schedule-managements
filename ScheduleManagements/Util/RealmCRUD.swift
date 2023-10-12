@@ -24,7 +24,7 @@ extension RealmCRUD {
         }
     }
 
-    class func realmUpdate<T: Object & WeekDay>(weekModel: inout T,
+    class func realmUpdate<T: WeekDay>(weekModel: inout T,
                                                 subjects: [String],
                                                 trainTime: Date
     ) {
