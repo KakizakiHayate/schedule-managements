@@ -28,18 +28,13 @@ extension RealmCRUD {
                                                 subjects: [String],
                                                 trainTime: Date
     ) {
-        // TODO: リセットボタン押されたときに配列の中に空文字列6個を入れる
         guard let localRealm = try? Realm() else { return }
         do {
             try localRealm.write {
-                if subjects.count == weekModel.scheduleList.count {
-                    (0 ..< subjects.count).forEach {
-                        weekModel.scheduleList[$0] = subjects[$0]
-                    }
-                    weekModel.trainTime = trainTime
-                } else {
-                    print("array index error:")
+                (0 ..< subjects.count).forEach {
+                    weekModel.scheduleList[$0] = subjects[$0]
                 }
+                weekModel.trainTime = trainTime
             }
         } catch {
             print(error.localizedDescription)

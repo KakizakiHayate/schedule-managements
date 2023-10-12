@@ -8,7 +8,7 @@
 import Foundation
 import RealmSwift
 
-protocol WeekDay {
+protocol WeekDay where Self: Object {
     // MARK: - Properties
     var _id: ObjectId { get }
     var scheduleList: List<String> { get set }
@@ -17,25 +17,55 @@ protocol WeekDay {
 
 extension WeekDay {
     // MARK: - Methods
-    func addSchedule<T: Object & WeekDay>(weekDayModel: inout T,
-                                          subjectArray: [String],
-                                          trainTime: Date
+    func addSchedule<T: WeekDay>(weekDayModel: inout T,
+                                 subjects: [String],
+                                 trainTime: Date
     ) {
         if var lastObject = RealmCRUD.realmRead(weekModel: T.self) {
-            RealmCRUD.realmUpdate(weekModel: &lastObject,
-                                  subjects: subjectArray,
-                                  trainTime: trainTime)
+            // Realmに更新するときの処理
+            if subjects.count == AppConst.DefaultValue.scheduleCount
+                && subjects.allSatisfy({ $0 == AppConst.Empty.emptyText }) {
+                let newObject = newObjectAdd(weekDayModel: weekDayModel,
+                                             subjects: subjects,
+                                             trainTime: trainTime)
+                RealmCRUD.realmAdd(weekModel: newObject)
+            }
+
+            if subjects.count == weekDayModel.scheduleList.count {
+                RealmCRUD.realmUpdate(weekModel: &lastObject,
+                                      subjects: subjects,
+                                      trainTime: trainTime)
+            }
+
+            if subjects.count != weekDayModel.scheduleList.count {
+                let newObject = newObjectAdd(weekDayModel: weekDayModel,
+                                             subjects: subjects,
+                                             trainTime: trainTime)
+                RealmCRUD.realmAdd(weekModel: newObject)
+            }
         } else {
             // realmに追加するときの処理
-            subjectArray.forEach {
-                weekDayModel.scheduleList.append($0)
-            }
-            weekDayModel.trainTime = trainTime
-            RealmCRUD.realmAdd(weekModel: weekDayModel)
+            let newObject = newObjectAdd(weekDayModel: weekDayModel,
+                                         subjects: subjects,
+                                         trainTime: trainTime)
+            RealmCRUD.realmAdd(weekModel: newObject)
         }
     }
 
-    func readSchedule<T: Object & WeekDay>(weekModel _: T) -> (List<String>, Date) {
+    private func newObjectAdd<T: WeekDay>(weekDayModel: T,
+                                          subjects: [String],
+                                          trainTime: Date
+    ) -> T {
+        let newObject = T.init()
+        subjects.forEach {
+            newObject.scheduleList.append($0)
+        }
+        newObject.trainTime = trainTime
+
+        return newObject
+    }
+
+    func readSchedule<T: WeekDay>(weekModel _: T) -> (List<String>, Date) {
         if let lastObject = RealmCRUD.realmRead(weekModel: T.self) {
             return (lastObject.scheduleList, lastObject.trainTime)
         } else {
