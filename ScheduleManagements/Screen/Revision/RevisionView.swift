@@ -22,23 +22,17 @@ struct RevisionView<T: Object & WeekDay>: View {
         ScrollView {
             VStack {
                 Text("修正画面").font(.title2).bold().padding()
-
                 HStack {
-
                     Spacer()
-
-                    Button(action: {
+                    Button {
                         // changeObject関数から返ってきた値でdeleteAllScheduleGroup()する
                         changeObjectReset(changeObjectInt: changeObjectInt)
-
                         subjectArray = ["","","","","",""]
                         trainTime = Date()
-                    }) {
+                    } label: {
                         Text("リセット").foregroundColor(Color.customColorPurple).padding(.trailing)
                     }
                 }
-
-
                 ForEach(0 ..< subjectArray.count, id: \.self) { item in
                     HStack {
                         Text("\(item + 1)限目")
@@ -47,33 +41,27 @@ struct RevisionView<T: Object & WeekDay>: View {
                             .bold()
                             .padding(.bottom)
                             .padding(.leading)
-
-                        //このtext: は、Binding<String>になっているから入力させるなら今の状態ならOK
+                        // このtext: は、Binding<String>になっているから入力させるなら今の状態ならOK
                         TextField("未入力", text: $subjectArray[item])
                             .textFieldStyle(RoundedBorderTextFieldStyle())
                             .padding(.bottom)
                             .padding(.trailing)
                     }
                 }
-
                 HStack {
-
                     Spacer()
-                    //マイナスボタン
-                    Button(action: {
-                        //最低1まで来たら減らせない
+                    // マイナスボタン
+                    Button {
+                        // 最低1まで来たら減らせない
                         if subjectArray.count == 1 {
                             showingAlertMinus = true
                         } else {
                             subjectArray.removeLast()
                         }
-
-
-                    }) {
+                    } label: {
                         Image(systemName: "minus")
                             .foregroundColor(Color.customColorPurple)
                             .bold()
-
                     }
                     .padding(.trailing).padding(.bottom)
                     .alert("お知らせ", isPresented: $showingAlertMinus) {
@@ -81,17 +69,15 @@ struct RevisionView<T: Object & WeekDay>: View {
                     } message: {
                         Text("これ以上削除できません")
                     }
-                    //プラスボタン
-                    Button(action: {
-                        //最大10まで来たら増やせない
+                    // プラスボタン
+                    Button {
+                        // 最大10まで来たら増やせない
                         if subjectArray.count == 10 {
                             showingAlertPlus = true
                         } else {
                             subjectArray.append("")
                         }
-
-
-                    }) {
+                    } label: {
                         Image(systemName: "plus")
                             .foregroundColor(Color.customColorPurple)
                             .bold()
@@ -103,31 +89,29 @@ struct RevisionView<T: Object & WeekDay>: View {
                         Text("これ以上増やせません")
                     }
                 }
-
                 Spacer()
-
                 DatePicker("電車の時間", selection: $trainTime, displayedComponents: .hourAndMinute)
                     .padding()
-
-                Button(action: {
-                    //設定完了したらsheetを閉じる
+                Button {
+                    // 設定完了したらsheetを閉じる
                     showRevisionSheet = false
-                    weekDayModel.addSchedule(weekDayModel: &weekDayModel, subjectArray: subjectArray, trainTime: trainTime)
+                    weekDayModel.addSchedule(weekDayModel: &weekDayModel,
+                                             subjectArray: subjectArray,
+                                             trainTime: trainTime)
                     changeObjectComplete(changeObjectInt: changeObjectInt)
 
-                }) {
+                } label: {
                     Text("変更完了")
                         .padding()
                         .background(Color.customColorPurple)
                         .foregroundColor(.white)
                         .cornerRadius(30)
                 }
-
             }
         }
     }
-    //リセットボタン
-    //条件分岐させた後にデータベースをallDeleteする。
+    // リセットボタン
+    // 条件分岐させた後にデータベースをallDeleteする。
     func changeObjectReset(changeObjectInt: Int) {
         switch changeObjectInt {
         case 1:
@@ -137,10 +121,8 @@ struct RevisionView<T: Object & WeekDay>: View {
             return
         }
     }
-    //設定完了ボタン
-    func changeObjectComplete(changeObjectInt: Int) {
-
-    }
+    // 設定完了ボタン
+    func changeObjectComplete(changeObjectInt: Int) {}
 }
 
 #Preview {
