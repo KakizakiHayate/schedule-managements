@@ -9,7 +9,7 @@ import SwiftUI
 import RealmSwift
 
 /// 教科と電車時刻を修正画面
-struct RevisionView<T: Object & WeekDay>: View {
+struct RevisionView<T: WeekDay>: View {
     // MARK: - Property Wrappers
     @State private var showingAlertPlus = false
     @State private var showingAlertMinus = false
