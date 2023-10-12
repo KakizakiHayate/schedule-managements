@@ -21,28 +21,28 @@ struct RevisionView<T: Object & WeekDay>: View {
     var body: some View {
         ScrollView {
             VStack {
-                Text("修正画面").font(.title2).bold().padding()
+                Text("教科と電車時刻を修正").font(.title2).bold().padding()
                 HStack {
                     Spacer()
                     Button {
-                        // changeObject関数から返ってきた値でdeleteAllScheduleGroup()する
-                        changeObjectReset(changeObjectInt: changeObjectInt)
-                        subjectArray = ["","","","","",""]
+                        // 以下2行は、メソッド化できる
+                        subjectArray = AppConst.DefaultValue.schedule
                         trainTime = Date()
                     } label: {
-                        Text("リセット").foregroundColor(Color.customColorPurple).padding(.trailing)
+                        Text("リセット").foregroundColor(Color.customColorPurple)
+                            .padding(.trailing)
                     }
                 }
-                ForEach(0 ..< subjectArray.count, id: \.self) { item in
+                ForEach(0 ..< subjectArray.count, id: \.self) { index in
                     HStack {
-                        Text("\(item + 1)限目")
+                        Text("\(index + 1)限目")
                             .font(.system(size: 15))
                             .foregroundColor(Color.customColorPurple)
                             .bold()
                             .padding(.bottom)
                             .padding(.leading)
                         // このtext: は、Binding<String>になっているから入力させるなら今の状態ならOK
-                        TextField("未入力", text: $subjectArray[item])
+                        TextField("未入力", text: $subjectArray[index])
                             .textFieldStyle(RoundedBorderTextFieldStyle())
                             .padding(.bottom)
                             .padding(.trailing)
@@ -95,8 +95,9 @@ struct RevisionView<T: Object & WeekDay>: View {
                 Button {
                     // 設定完了したらsheetを閉じる
                     showRevisionSheet = false
+                    
                     weekDayModel.addSchedule(weekDayModel: &weekDayModel,
-                                             subjectArray: subjectArray,
+                                             subjects: subjectArray,
                                              trainTime: trainTime)
                     changeObjectComplete(changeObjectInt: changeObjectInt)
 
