@@ -11,5 +11,7 @@ import RealmSwift
 class Tuesday: Object, WeekDay {
     @Persisted(primaryKey: true) var _id: ObjectId
     @Persisted var scheduleList = List<String>()
-    @Persisted var trainTime: Date
+    @Persisted var trainTime = Date()
 }
+
+extension Tuesday: ObjectKeyIdentifiable {}
