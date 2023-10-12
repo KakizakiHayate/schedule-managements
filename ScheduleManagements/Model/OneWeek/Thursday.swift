@@ -1,18 +1,18 @@
 //
-//  Wednesday.swift
+//  Thursday.swift
 //  ScheduleManagements
 //
-//  Created by 柿崎逸 on 2023/10/09.
+//  Created by 柿崎逸 on 2023/10/12.
 //
 
 import Foundation
 import RealmSwift
 
-class Wednesday: Object, WeekDay {
+class Thursday: Object, WeekDay {
     // MARK: - Property Wrappers
     @Persisted(primaryKey: true) var _id: ObjectId
     @Persisted var scheduleList = List<String>()
     @Persisted var trainTime = Date()
 }
 
-extension Wednesday: ObjectKeyIdentifiable {}
+extension Thursday: ObjectKeyIdentifiable {}
