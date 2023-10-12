@@ -13,11 +13,9 @@ struct RevisionView<T: Object & WeekDay>: View {
     // MARK: - Property Wrappers
     @State private var showingAlertPlus = false
     @State private var showingAlertMinus = false
-    @Binding var subjectArray: [String]
     @Binding var showRevisionSheet: Bool
-    @Binding var trainTime: Date
-    @Binding var changeObjectInt: Int
     @Binding var weekDayModel: T
+    @StateObject private var vm = RevisionViewModel<T>()
 
     // MARK: - Body
     var body: some View {
@@ -28,14 +26,14 @@ struct RevisionView<T: Object & WeekDay>: View {
                     Spacer()
                     Button {
                         // 以下2行は、メソッド化できる
-                        subjectArray = AppConst.DefaultValue.schedule
-                        trainTime = Date()
+                        vm.subjects = AppConst.DefaultValue.schedule
+                        vm.trainTime = Date()
                     } label: {
                         Text("リセット").foregroundColor(Color.customColorPurple)
                             .padding(.trailing)
                     }
                 }
-                ForEach(0 ..< subjectArray.count, id: \.self) { index in
+                ForEach(0 ..< vm.subjects.count, id: \.self) { index in
                     HStack {
                         Text("\(index + 1)限目")
                             .font(.system(size: 15))
@@ -44,7 +42,7 @@ struct RevisionView<T: Object & WeekDay>: View {
                             .padding(.bottom)
                             .padding(.leading)
                         // このtext: は、Binding<String>になっているから入力させるなら今の状態ならOK
-                        TextField("未入力", text: $subjectArray[index])
+                        TextField("未入力", text: $vm.subjects[index])
                             .textFieldStyle(RoundedBorderTextFieldStyle())
                             .padding(.bottom)
                             .padding(.trailing)
@@ -55,10 +53,10 @@ struct RevisionView<T: Object & WeekDay>: View {
                     // マイナスボタン
                     Button {
                         // 最低1まで来たら減らせない
-                        if subjectArray.count == 1 {
+                        if vm.subjects.count == 1 {
                             showingAlertMinus = true
                         } else {
-                            subjectArray.removeLast()
+                            vm.subjects.removeLast()
                         }
                     } label: {
                         Image(systemName: "minus")
@@ -74,10 +72,10 @@ struct RevisionView<T: Object & WeekDay>: View {
                     // プラスボタン
                     Button {
                         // 最大10まで来たら増やせない
-                        if subjectArray.count == 10 {
+                        if vm.subjects.count == 10 {
                             showingAlertPlus = true
                         } else {
-                            subjectArray.append("")
+                            vm.subjects.append("")
                         }
                     } label: {
                         Image(systemName: "plus")
@@ -92,16 +90,17 @@ struct RevisionView<T: Object & WeekDay>: View {
                     }
                 }
                 Spacer()
-                DatePicker("電車の時間", selection: $trainTime, displayedComponents: .hourAndMinute)
+                DatePicker("電車の時間",
+                           selection: $vm.trainTime,
+                           displayedComponents: .hourAndMinute)
                     .padding()
                 Button {
                     // 設定完了したらsheetを閉じる
                     showRevisionSheet = false
                     
                     weekDayModel.addSchedule(weekDayModel: &weekDayModel,
-                                             subjects: subjectArray,
-                                             trainTime: trainTime)
-
+                                             subjects: vm.subjects,
+                                             trainTime: vm.trainTime)
                 } label: {
                     Text("変更完了")
                         .padding()
@@ -109,17 +108,13 @@ struct RevisionView<T: Object & WeekDay>: View {
                         .foregroundColor(.white)
                         .cornerRadius(30)
                 }
-            }
+            }.onAppear { vm.readSchedule(weekDayModel: weekDayModel) }
         }
     } // body
 } // view
 
 // MARK: - Preview
 #Preview {
-    RevisionView(subjectArray: .constant([]),
-                 showRevisionSheet: .constant(false),
-                 trainTime: .constant(Date()),
-                 changeObjectInt: .constant(0),
-                 weekDayModel: .constant(Monday())
-    )
+    RevisionView(showRevisionSheet: .constant(false),
+                 weekDayModel: .constant( Monday() ))
 }

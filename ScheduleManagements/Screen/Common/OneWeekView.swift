@@ -28,13 +28,13 @@ struct OneWeekView<T: Object & WeekDay>: View {
                 ZStack(alignment: .bottomTrailing) {
                     List {
                         Section {
-                            ForEach(0 ..< vm.subjectArray.count, id: \.self) { subject in
+                            ForEach(0 ..< vm.subjects.count, id: \.self) { subject in
                                 VStack {
                                     // +1すると\(subject + 1)が1始まりになる。
                                     HStack {
                                         Text("\(subject + 1)： ")
                                             .foregroundColor(Color.customColorPurple).bold()
-                                        Text("\(vm.subjectArray[subject])")
+                                        Text("\(vm.subjects[subject])")
                                     }
                                 }
                             }
@@ -71,18 +71,13 @@ struct OneWeekView<T: Object & WeekDay>: View {
                     .padding(.trailing)
                     .sheet(isPresented: $vm.showRevisionSheet) {
                         // subjectArrayは、TextFieldのtext:の型がBinding<String>だから渡す必要がある
-                        RevisionView<T>(subjectArray: $vm.subjectArray,
-                                        showRevisionSheet: $vm.showRevisionSheet,
-                                        trainTime: $vm.trainTime,
-                                        changeObjectInt: $vm.chageObjectInt,
+                        RevisionView<T>(showRevisionSheet: $vm.showRevisionSheet,
                                         weekDayModel: $vm.weekDayModel)
                     }
                 }
             }
-        }
-        .onAppear {
-            vm.readSchedule(weekDayModel: vm.weekDayModel)
-        }
+        }.onAppear { vm.readSchedule(weekDayModel: vm.weekDayModel )
+    }
     } // body
 } // view
 
