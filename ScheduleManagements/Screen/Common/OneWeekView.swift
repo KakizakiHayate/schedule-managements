@@ -10,14 +10,12 @@ import RealmSwift
 
 struct OneWeekView<T: Object & WeekDay>: View {
     // MARK: - Property Wrappers
-    @ObservedObject private var vm = OneWeekViewModel()
+    @ObservedObject private var vm = OneWeekViewModel<T>()
     @StateObject private var dateManager = DateManager.shared
-    // MARK: - Properties
-    private var weekDayModel: T
 
     // MARK: - Initialize
     init() {
-        weekDayModel = T.init()
+        vm.weekDayModel = T.init()
     }
 
     // MARK: - Body
@@ -70,16 +68,17 @@ struct OneWeekView<T: Object & WeekDay>: View {
                     .padding(.trailing)
                     .sheet(isPresented: $vm.showRevisionSheet) {
                         //subjectArrayは、TextFieldのtext:の型がBinding<String>だから渡す必要がある
-                        RevisionView(subjectArray: $vm.subjectArray,
-                                     showRevisionSheet: $vm.showRevisionSheet,
-                                     trainTime: $vm.trainTime,
-                                     changeObjectInt: $vm.chageObjectInt)
+                        RevisionView<T>(subjectArray: $vm.subjectArray,
+                                        showRevisionSheet: $vm.showRevisionSheet,
+                                        trainTime: $vm.trainTime,
+                                        changeObjectInt: $vm.chageObjectInt,
+                                        weekDayModel: $vm.weekDayModel)
                     }
                 }
             }
         }
         .onAppear {
-            vm.readSchedule(weekDayModel: weekDayModel)
+            vm.readSchedule(weekDayModel: vm.weekDayModel)
         }
     } // body
 } // view

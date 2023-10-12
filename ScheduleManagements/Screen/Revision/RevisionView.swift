@@ -6,20 +6,22 @@
 //
 
 import SwiftUI
+import RealmSwift
 
-struct RevisionView: View {
-
+struct RevisionView<T: Object & WeekDay>: View {
+    // MARK: - Property Wrappers
     @State private var showingAlertPlus = false
     @State private var showingAlertMinus = false
     @Binding var subjectArray: [String]
     @Binding var showRevisionSheet: Bool
     @Binding var trainTime: Date
     @Binding var changeObjectInt: Int
+    @Binding var weekDayModel: T
 
     var body: some View {
         ScrollView {
             VStack {
-                    Text("修正画面").font(.title2).bold().padding()
+                Text("修正画面").font(.title2).bold().padding()
 
                 HStack {
 
@@ -110,7 +112,7 @@ struct RevisionView: View {
                 Button(action: {
                     //設定完了したらsheetを閉じる
                     showRevisionSheet = false
-                    Monday().addMonDay(subjectArray: subjectArray, trainTime: trainTime)
+                    weekDayModel.addSchedule(weekDayModel: &weekDayModel, subjectArray: subjectArray, trainTime: trainTime)
                     changeObjectComplete(changeObjectInt: changeObjectInt)
 
                 }) {
@@ -145,6 +147,7 @@ struct RevisionView: View {
     RevisionView(subjectArray: .constant([]),
                  showRevisionSheet: .constant(false),
                  trainTime: .constant(Date()),
-                 changeObjectInt: .constant(0)
+                 changeObjectInt: .constant(0),
+                 weekDayModel: .constant(Monday())
     )
 }

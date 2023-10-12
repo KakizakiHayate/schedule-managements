@@ -9,17 +9,18 @@ import Foundation
 import RealmSwift
 
 @MainActor
-class OneWeekViewModel: ObservableObject {
+class OneWeekViewModel<T: Object & WeekDay>: ObservableObject {
     // MARK: - Property Wrappers
     @Published var showRevisionSheet = false
     @Published var trainTime = Date()
     @Published var chageObjectInt = 1
     @Published var subjectArray = [String]()
+    var weekDayModel = T.init()
 }
 // [String],Date型が返ってくれば格納できる
 extension OneWeekViewModel {
     // MARK: - Methods
-    func readSchedule<T: Object & WeekDay>(weekDayModel: T) {
+    func readSchedule(weekDayModel: T) {
         let (mondayList, trainTime) = weekDayModel.readSchedule(weekModel: weekDayModel)
         subjectArray = mondayList.map { $0 }
         self.trainTime = trainTime

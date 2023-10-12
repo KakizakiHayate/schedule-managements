@@ -17,14 +17,16 @@ protocol WeekDay {
 
 extension WeekDay {
     // MARK: - Methods
-    func addSchedule(subjectArray: [String], trainTime: Date) {
+    func addSchedule<T: Object & WeekDay>(weekDayModel: inout T,
+                                          subjectArray: [String],
+                                          trainTime: Date
+    ) {
         // TODO: - ここは、他のインスタンス生成方法があれば置き換える
-        let monday = Monday()
         subjectArray.forEach {
-            monday.scheduleList.append($0)
+            weekDayModel.scheduleList.append($0)
         }
-        monday.trainTime = trainTime
-        RealmCRUD.realmAdd(weekModel: monday)
+        weekDayModel.trainTime = trainTime
+        RealmCRUD.realmAdd(weekModel: weekDayModel)
     }
 
     func readSchedule<T: Object & WeekDay>(weekModel _: T) -> (List<String>, Date) {
