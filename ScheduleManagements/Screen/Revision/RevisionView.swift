@@ -8,6 +8,7 @@
 import SwiftUI
 import RealmSwift
 
+/// 教科と電車時刻を修正画面
 struct RevisionView<T: Object & WeekDay>: View {
     // MARK: - Property Wrappers
     @State private var showingAlertPlus = false
@@ -18,6 +19,7 @@ struct RevisionView<T: Object & WeekDay>: View {
     @Binding var changeObjectInt: Int
     @Binding var weekDayModel: T
 
+    // MARK: - Body
     var body: some View {
         ScrollView {
             VStack {
@@ -99,7 +101,6 @@ struct RevisionView<T: Object & WeekDay>: View {
                     weekDayModel.addSchedule(weekDayModel: &weekDayModel,
                                              subjects: subjectArray,
                                              trainTime: trainTime)
-                    changeObjectComplete(changeObjectInt: changeObjectInt)
 
                 } label: {
                     Text("変更完了")
@@ -110,22 +111,10 @@ struct RevisionView<T: Object & WeekDay>: View {
                 }
             }
         }
-    }
-    // リセットボタン
-    // 条件分岐させた後にデータベースをallDeleteする。
-    func changeObjectReset(changeObjectInt: Int) {
-        switch changeObjectInt {
-        case 1:
-            let monday = Monday()
-            monday.deleteAllMonDay()
-        default:
-            return
-        }
-    }
-    // 設定完了ボタン
-    func changeObjectComplete(changeObjectInt: Int) {}
-}
+    } // body
+} // view
 
+// MARK: - Preview
 #Preview {
     RevisionView(subjectArray: .constant([]),
                  showRevisionSheet: .constant(false),

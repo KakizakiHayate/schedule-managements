@@ -9,7 +9,6 @@ import Foundation
 
 class RevisionViewModel: ObservableObject {
     // MARK: - Property Wrappers
-    
 }
 
 extension RevisionViewModel {

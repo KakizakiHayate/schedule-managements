@@ -8,6 +8,7 @@
 import Foundation
 import RealmSwift
 
+/// MondayモデルからSundayモデルが共通で使うカラム名とメソッドのプロトコル
 protocol WeekDay where Self: Object {
     // MARK: - Properties
     var _id: ObjectId { get }
@@ -22,7 +23,7 @@ extension WeekDay {
                                  trainTime: Date
     ) {
         if var lastObject = RealmCRUD.realmRead(weekModel: T.self) {
-            // Realmに更新するときの処理
+            // リセットボタンを押した時の処理
             if subjects.count == AppConst.DefaultValue.scheduleCount
                 && subjects.allSatisfy({ $0 == AppConst.Empty.emptyText }) {
                 let newObject = newObjectAdd(weekDayModel: weekDayModel,
@@ -31,12 +32,14 @@ extension WeekDay {
                 RealmCRUD.realmAdd(weekModel: newObject)
             }
 
+            // realmに保存している配列の要素数と保存したい配列の要素数が同じなら更新する
             if subjects.count == weekDayModel.scheduleList.count {
                 RealmCRUD.realmUpdate(weekModel: &lastObject,
                                       subjects: subjects,
                                       trainTime: trainTime)
             }
 
+            // realmに保存している配列の要素数と保存したい配列の要素数が異なるなら追加する
             if subjects.count != weekDayModel.scheduleList.count {
                 let newObject = newObjectAdd(weekDayModel: weekDayModel,
                                              subjects: subjects,
@@ -44,7 +47,6 @@ extension WeekDay {
                 RealmCRUD.realmAdd(weekModel: newObject)
             }
         } else {
-            // realmに追加するときの処理
             let newObject = newObjectAdd(weekDayModel: weekDayModel,
                                          subjects: subjects,
                                          trainTime: trainTime)
@@ -52,6 +54,7 @@ extension WeekDay {
         }
     }
 
+    /// realmで追加するときに使う
     private func newObjectAdd<T: WeekDay>(weekDayModel: T,
                                           subjects: [String],
                                           trainTime: Date
@@ -76,4 +79,9 @@ extension WeekDay {
             return (emptyList, Date())
         }
     }
+
+    // TODO: まだ使ってない
+//    func deleteAllMonDay() {
+//        RealmCRUD.realmDelete(weekModel: Self.self)
+//    }
 }

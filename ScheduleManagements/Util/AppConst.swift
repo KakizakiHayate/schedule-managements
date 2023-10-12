@@ -7,6 +7,7 @@
 
 import Foundation
 
+// MARK: - AppConst
 enum AppConst {
     // MARK: - DefaultValue
     enum DefaultValue {

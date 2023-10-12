@@ -7,10 +7,12 @@
 
 import Foundation
 
+/// 電車の時刻で使うDateFormatterのManagerクラス
 final class DateManager: ObservableObject {
     // MARK: - Properties
     static let shared = DateManager()
     private let dateFormatter: DateFormatter
+    
     // MARK: - Initialize
     private init() {
         dateFormatter = DateFormatter()
