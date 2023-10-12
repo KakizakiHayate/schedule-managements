@@ -9,6 +9,16 @@ import SwiftUI
 
 /// 曜日選択画面
 struct OneWeekSelectView: View {
+    // MARK: - Property Wrappers
+    @State private var weekday = ""
+    // MARK: - Properties
+    private let monday    = AppConst.Text.monday
+    private let tuesday   = AppConst.Text.tuesday
+    private let wednesday = AppConst.Text.wednesday
+    private let thursday  = AppConst.Text.thursday
+    private let friday    = AppConst.Text.friday
+    private let saturday  = AppConst.Text.saturday
+    private let sunday    = AppConst.Text.sunday
 
     // MARK: - Body
     var body: some View {
@@ -23,83 +33,56 @@ struct OneWeekSelectView: View {
                     HStack {
                         VStack {
                             NavigationLink {
-                                OneWeekView<Saturday>()
+                                OneWeekView<Saturday>(weekday: $weekday)
+                                    .onAppear { weekday = saturday }
                             } label: {
-                                Text("土")
-                                    .font(.title)
-                                    .foregroundColor(.white)
-                                    .frame(width: 65, height: 65)
-                                    .background(Color.customColorPurple)
-                                    .cornerRadius(40)
+                                TextWeekdaySelectView(weekday: saturday)
                             }.padding(.bottom)
 
                             NavigationLink {
-                                OneWeekView<Sunday>()
+                                OneWeekView<Sunday>(weekday: $weekday)
+                                    .onAppear { weekday = sunday }
                             } label: {
-                                Text("日")
-                                    .font(.title)
-                                    .foregroundColor(.white)
-                                    .frame(width: 65, height: 65)
-                                    .background(Color.customColorPurple)
-                                    .cornerRadius(40)
+                                TextWeekdaySelectView(weekday: sunday)
                             }.padding(.top)
                         }.padding(.trailing)
 
                         VStack {
                             NavigationLink {
-                                OneWeekView<Wednesday>()
+                                OneWeekView<Wednesday>(weekday: $weekday)
+                                    .onAppear { weekday = wednesday }
                             } label: {
-                                Text("水")
-                                    .font(.title)
-                                    .foregroundColor(.white)
-                                    .frame(width: 65, height: 65)
-                                    .background(Color.customColorPurple)
-                                    .cornerRadius(40)
+                                TextWeekdaySelectView(weekday: wednesday)
                             }.padding(.bottom)
+
                             NavigationLink {
-                                OneWeekView<Thursday>()
+                                OneWeekView<Thursday>(weekday: $weekday)
+                                    .onAppear { weekday = thursday }
                             } label: {
-                                Text("木")
-                                    .font(.title)
-                                    .foregroundColor(.white)
-                                    .frame(width: 65, height: 65)
-                                    .background(Color.customColorPurple)
-                                    .cornerRadius(40)
+                                TextWeekdaySelectView(weekday: thursday)
                             }
+
                             NavigationLink {
-                                OneWeekView<Friday>()
+                                OneWeekView<Friday>(weekday: $weekday)
+                                    .onAppear { weekday = friday }
                             } label: {
-                                Text("金")
-                                    .font(.title)
-                                    .foregroundColor(.white)
-                                    .frame(width: 65, height: 65)
-                                    .background(Color.customColorPurple)
-                                    .cornerRadius(40)
+                                TextWeekdaySelectView(weekday: friday)
                             }.padding(.top)
                         }
 
                         VStack {
                             NavigationLink {
-                                OneWeekView<Monday>()
-
+                                OneWeekView<Monday>(weekday: $weekday)
+                                    .onAppear { weekday = monday }
                             } label: {
-                                Text("月")
-                                    .font(.title)
-                                    .foregroundColor(.white)
-                                    .frame(width: 65, height: 65)
-                                    .background(Color.customColorPurple)
-                                    .cornerRadius(40)
+                                TextWeekdaySelectView(weekday: monday)
                             }.padding(.bottom)
 
                             NavigationLink {
-                                OneWeekView<Tuesday>()
+                                OneWeekView<Tuesday>(weekday: $weekday)
+                                    .onAppear { weekday = tuesday }
                             } label: {
-                                Text("火")
-                                    .font(.title)
-                                    .foregroundColor(.white)
-                                    .frame(width: 65, height: 65)
-                                    .background(Color.customColorPurple)
-                                    .cornerRadius(40)
+                                TextWeekdaySelectView(weekday: tuesday)
                             }.padding(.top)
                         }.padding(.leading)
                     }

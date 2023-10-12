@@ -11,11 +11,13 @@ import RealmSwift
 /// 共通で使う教科と電車の時刻一覧画面
 struct OneWeekView<T: Object & WeekDay>: View {
     // MARK: - Property Wrappers
+    @Binding var weekday: String
     @ObservedObject private var vm = OneWeekViewModel<T>()
     @StateObject private var dateManager = DateManager.shared
 
     // MARK: - Initialize
-    init() {
+    init(weekday: Binding<String>) {
+        self._weekday = weekday
         vm.weekDayModel = T.init()
     }
 
@@ -54,7 +56,7 @@ struct OneWeekView<T: Object & WeekDay>: View {
                         } header: {
                             Text("電車の時刻")
                         }
-                    }.navigationTitle("月曜日")
+                    }.navigationTitle("\(weekday)曜日")
                     Button {
                         vm.showRevisionSheet.toggle()
                     } label: {
@@ -86,5 +88,5 @@ struct OneWeekView<T: Object & WeekDay>: View {
 
 // MARK: - Preview
 #Preview {
-    OneWeekView<Monday>()
+    OneWeekView<Monday>(weekday: .constant(""))
 }

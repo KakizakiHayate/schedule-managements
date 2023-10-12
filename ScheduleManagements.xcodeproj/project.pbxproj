@@ -23,6 +23,7 @@
 		75482C252AD8117900B3C238 /* Friday.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75482C242AD8117900B3C238 /* Friday.swift */; };
 		75482C272AD811A100B3C238 /* Saturday.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75482C262AD811A100B3C238 /* Saturday.swift */; };
 		75482C292AD811B400B3C238 /* Sunday.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75482C282AD811B400B3C238 /* Sunday.swift */; };
+		75482C2B2AD835F500B3C238 /* TextWeekdaySelectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75482C2A2AD835F500B3C238 /* TextWeekdaySelectView.swift */; };
 		75D2758F2ACDD83F004DC5A0 /* ScheduleManagementsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D2758E2ACDD83F004DC5A0 /* ScheduleManagementsApp.swift */; };
 		75D275932ACDD842004DC5A0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 75D275922ACDD842004DC5A0 /* Assets.xcassets */; };
 		75D275962ACDD842004DC5A0 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 75D275952ACDD842004DC5A0 /* Preview Assets.xcassets */; };
@@ -50,6 +51,7 @@
 		75482C242AD8117900B3C238 /* Friday.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Friday.swift; sourceTree = "<group>"; };
 		75482C262AD811A100B3C238 /* Saturday.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Saturday.swift; sourceTree = "<group>"; };
 		75482C282AD811B400B3C238 /* Sunday.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sunday.swift; sourceTree = "<group>"; };
+		75482C2A2AD835F500B3C238 /* TextWeekdaySelectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextWeekdaySelectView.swift; sourceTree = "<group>"; };
 		75D2758B2ACDD83F004DC5A0 /* ScheduleManagements.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ScheduleManagements.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		75D2758E2ACDD83F004DC5A0 /* ScheduleManagementsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleManagementsApp.swift; sourceTree = "<group>"; };
 		75D275922ACDD842004DC5A0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -111,6 +113,7 @@
 			children = (
 				751128612AD294B500DA71DA /* OneWeekView.swift */,
 				751128632AD2959800DA71DA /* OneWeekViewModel.swift */,
+				75482C2C2AD8389000B3C238 /* TextView */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -186,6 +189,14 @@
 				75482C112AD5504600B3C238 /* WeekDay.swift */,
 			);
 			path = Protocol;
+			sourceTree = "<group>";
+		};
+		75482C2C2AD8389000B3C238 /* TextView */ = {
+			isa = PBXGroup;
+			children = (
+				75482C2A2AD835F500B3C238 /* TextWeekdaySelectView.swift */,
+			);
+			path = TextView;
 			sourceTree = "<group>";
 		};
 		75D275822ACDD83F004DC5A0 = {
@@ -381,6 +392,7 @@
 				75482C292AD811B400B3C238 /* Sunday.swift in Sources */,
 				75482C0D2AD5132300B3C238 /* MigrationManager.swift in Sources */,
 				75482C272AD811A100B3C238 /* Saturday.swift in Sources */,
+				75482C2B2AD835F500B3C238 /* TextWeekdaySelectView.swift in Sources */,
 				751128722AD29E4200DA71DA /* Extension+Color.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
