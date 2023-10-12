@@ -27,7 +27,7 @@ struct OneWeekView<T: Object & WeekDay>: View {
                         Section {
                             ForEach(0 ..< vm.subjectArray.count, id: \.self) { subject in
                                 VStack {
-                                    //+1すると\(subject + 1)が1始まりになる。
+                                    // +1すると\(subject + 1)が1始まりになる。
                                     HStack {
                                         Text("\(subject + 1)： ")
                                             .foregroundColor(Color.customColorPurple).bold()
@@ -67,7 +67,7 @@ struct OneWeekView<T: Object & WeekDay>: View {
                     .padding(.bottom)
                     .padding(.trailing)
                     .sheet(isPresented: $vm.showRevisionSheet) {
-                        //subjectArrayは、TextFieldのtext:の型がBinding<String>だから渡す必要がある
+                        // subjectArrayは、TextFieldのtext:の型がBinding<String>だから渡す必要がある
                         RevisionView<T>(subjectArray: $vm.subjectArray,
                                         showRevisionSheet: $vm.showRevisionSheet,
                                         trainTime: $vm.trainTime,
