@@ -21,12 +21,18 @@ extension WeekDay {
                                           subjectArray: [String],
                                           trainTime: Date
     ) {
-        // TODO: - ここは、他のインスタンス生成方法があれば置き換える
-        subjectArray.forEach {
-            weekDayModel.scheduleList.append($0)
+        if var lastObject = RealmCRUD.realmRead(weekModel: T.self) {
+            RealmCRUD.realmUpdate(weekModel: &lastObject,
+                                  subjects: subjectArray,
+                                  trainTime: trainTime)
+        } else {
+            // realmに追加するときの処理
+            subjectArray.forEach {
+                weekDayModel.scheduleList.append($0)
+            }
+            weekDayModel.trainTime = trainTime
+            RealmCRUD.realmAdd(weekModel: weekDayModel)
         }
-        weekDayModel.trainTime = trainTime
-        RealmCRUD.realmAdd(weekModel: weekDayModel)
     }
 
     func readSchedule<T: Object & WeekDay>(weekModel _: T) -> (List<String>, Date) {

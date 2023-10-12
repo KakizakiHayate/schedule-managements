@@ -24,12 +24,22 @@ extension RealmCRUD {
         }
     }
 
-    class func realmUpdate<T: Object>(weekModel: T.Type, week: (T) -> Void) {
+    class func realmUpdate<T: Object & WeekDay>(weekModel: inout T,
+                                                subjects: [String],
+                                                trainTime: Date
+    ) {
+        // TODO: リセットボタン押されたときに配列の中に空文字列6個を入れる
         guard let localRealm = try? Realm() else { return }
-        guard let firstObjct = localRealm.objects(weekModel).first else { return }
         do {
             try localRealm.write {
-                week(firstObjct)
+                if subjects.count == weekModel.scheduleList.count {
+                    (0 ..< subjects.count).forEach {
+                        weekModel.scheduleList[$0] = subjects[$0]
+                    }
+                    weekModel.trainTime = trainTime
+                } else {
+                    print("array index error:")
+                }
             }
         } catch {
             print(error.localizedDescription)
@@ -51,6 +61,7 @@ extension RealmCRUD {
     class func realmRead<T: Object>(weekModel: T.Type) -> T? {
         guard let localRealm = try? Realm() else { return nil }
         guard let lastObject = localRealm.objects(weekModel).last else { return nil }
+
         return lastObject
     }
 }
