@@ -5,6 +5,14 @@ ScheduleManagements
 電車を使う学生向けアプリ。電車と時間割を管理してくれます。
 
 ## 動画
+<details>
+  
+
+https://github.com/KakizakiHayate/schedule-managements/assets/109132975/ae5255f1-bc23-4ce3-a264-7366432aa4f4
+
+
+</details>
+
 
 ## 開発
 以下のように実装しました。
