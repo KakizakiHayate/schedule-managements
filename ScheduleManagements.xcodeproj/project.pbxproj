@@ -27,6 +27,8 @@
 		75D2758F2ACDD83F004DC5A0 /* ScheduleManagementsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D2758E2ACDD83F004DC5A0 /* ScheduleManagementsApp.swift */; };
 		75D275932ACDD842004DC5A0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 75D275922ACDD842004DC5A0 /* Assets.xcassets */; };
 		75D275962ACDD842004DC5A0 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 75D275952ACDD842004DC5A0 /* Preview Assets.xcassets */; };
+		75E786AD2AD99098005176A2 /* UIDeviceSizeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E786AC2AD99098005176A2 /* UIDeviceSizeManager.swift */; };
+		75E786AF2AD99910005176A2 /* MinusPlusImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E786AE2AD99910005176A2 /* MinusPlusImageView.swift */; };
 		75FA20022AD30A56000B5B86 /* Tuesday.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75FA20012AD30A56000B5B86 /* Tuesday.swift */; };
 		75FA20042AD30A60000B5B86 /* Wednesday.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75FA20032AD30A60000B5B86 /* Wednesday.swift */; };
 		DD45F48FA83046EFF381BB80 /* Pods_ScheduleManagements.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C2136BB1A5C820970159610 /* Pods_ScheduleManagements.framework */; };
@@ -56,6 +58,8 @@
 		75D2758E2ACDD83F004DC5A0 /* ScheduleManagementsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleManagementsApp.swift; sourceTree = "<group>"; };
 		75D275922ACDD842004DC5A0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		75D275952ACDD842004DC5A0 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		75E786AC2AD99098005176A2 /* UIDeviceSizeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIDeviceSizeManager.swift; sourceTree = "<group>"; };
+		75E786AE2AD99910005176A2 /* MinusPlusImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinusPlusImageView.swift; sourceTree = "<group>"; };
 		75FA20012AD30A56000B5B86 /* Tuesday.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tuesday.swift; sourceTree = "<group>"; };
 		75FA20032AD30A60000B5B86 /* Wednesday.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wednesday.swift; sourceTree = "<group>"; };
 		AC2E7F06AC1F7BCE815A0B54 /* Pods-ScheduleManagements.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ScheduleManagements.debug.xcconfig"; path = "Target Support Files/Pods-ScheduleManagements/Pods-ScheduleManagements.debug.xcconfig"; sourceTree = "<group>"; };
@@ -123,6 +127,7 @@
 			children = (
 				751128662AD29A3A00DA71DA /* RevisionView.swift */,
 				75482C0E2AD53B0B00B3C238 /* RevisionViewModel.swift */,
+				75E786B02AD99919005176A2 /* ImageView */,
 			);
 			path = Revision;
 			sourceTree = "<group>";
@@ -179,6 +184,7 @@
 			children = (
 				751128772AD2B8AF00DA71DA /* DateManager.swift */,
 				75482C0C2AD5132300B3C238 /* MigrationManager.swift */,
+				75E786AC2AD99098005176A2 /* UIDeviceSizeManager.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -239,6 +245,14 @@
 				75D275952ACDD842004DC5A0 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		75E786B02AD99919005176A2 /* ImageView */ = {
+			isa = PBXGroup;
+			children = (
+				75E786AE2AD99910005176A2 /* MinusPlusImageView.swift */,
+			);
+			path = ImageView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -381,7 +395,9 @@
 				7511286B2AD29BCC00DA71DA /* Monday.swift in Sources */,
 				75482C0F2AD53B0B00B3C238 /* RevisionViewModel.swift in Sources */,
 				75D2758F2ACDD83F004DC5A0 /* ScheduleManagementsApp.swift in Sources */,
+				75E786AD2AD99098005176A2 /* UIDeviceSizeManager.swift in Sources */,
 				751128622AD294B500DA71DA /* OneWeekView.swift in Sources */,
+				75E786AF2AD99910005176A2 /* MinusPlusImageView.swift in Sources */,
 				75482C122AD5504600B3C238 /* WeekDay.swift in Sources */,
 				75FA20042AD30A60000B5B86 /* Wednesday.swift in Sources */,
 				75FA20022AD30A56000B5B86 /* Tuesday.swift in Sources */,
@@ -452,7 +468,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -509,7 +525,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;

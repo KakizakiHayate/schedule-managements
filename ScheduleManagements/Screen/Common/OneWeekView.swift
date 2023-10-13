@@ -33,7 +33,7 @@ struct OneWeekView<T: WeekDay>: View {
                                     // +1すると\(subject + 1)が1始まりになる。
                                     HStack {
                                         Text("\(subject + 1)： ")
-                                            .foregroundColor(Color.customColorPurple).bold()
+                                            .foregroundColor(.customColorPurple).bold()
                                         Text("\(vm.subjects[subject])")
                                     }
                                 }
@@ -44,7 +44,7 @@ struct OneWeekView<T: WeekDay>: View {
                         Section {
                             HStack {
                                 Image(systemName: "train.side.front.car")
-                                    .foregroundColor(Color.customColorPurple)
+                                    .foregroundColor(.customColorPurple)
                                     .font(.system(size: 30.0))
                                 // TODO: ここの判定は修正が必要
                                 if vm.trainTime == Date() {
@@ -73,6 +73,7 @@ struct OneWeekView<T: WeekDay>: View {
                         // subjectArrayは、TextFieldのtext:の型がBinding<String>だから渡す必要がある
                         RevisionView<T>(showRevisionSheet: $vm.showRevisionSheet,
                                         weekDayModel: $vm.weekDayModel)
+                        .onDisappear { vm.readSchedule(weekDayModel: vm.weekDayModel) }
                     }
                 }
             }
