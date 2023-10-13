@@ -73,6 +73,7 @@ struct OneWeekView<T: WeekDay>: View {
                         // subjectArrayは、TextFieldのtext:の型がBinding<String>だから渡す必要がある
                         RevisionView<T>(showRevisionSheet: $vm.showRevisionSheet,
                                         weekDayModel: $vm.weekDayModel)
+                        .onDisappear { vm.readSchedule(weekDayModel: vm.weekDayModel) }
                     }
                 }
             }
