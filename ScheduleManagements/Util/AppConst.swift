@@ -17,11 +17,15 @@ enum AppConst {
         static let friday = "金"
         static let saturday = "土"
         static let sunday = "日"
+        static let deletionNotPossible = "これ以上削除できません"
+        static let additionNotPossible = "これ以上増やせません"
     }
     // MARK: - DefaultValue
     enum DefaultValue {
         static let schedule = ["", "", "", "", "", ""]
         static let scheduleCount = 6
+        static let scheduleListMax = 10
+        static let scheduleListMin = 1
     }
     // MARK: - Empty
     enum Empty {
