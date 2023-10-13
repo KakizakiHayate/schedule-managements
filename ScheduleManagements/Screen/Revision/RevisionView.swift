@@ -14,6 +14,7 @@ struct RevisionView<T: WeekDay>: View {
     @Binding var showRevisionSheet: Bool
     @Binding var weekDayModel: T
     @StateObject private var vm = RevisionViewModel<T>()
+    @StateObject private var uiDeviceSizeManager = UIDeviceSizeManager.shared
 
     // MARK: - Body
     var body: some View {
@@ -27,15 +28,17 @@ struct RevisionView<T: WeekDay>: View {
                         vm.subjects = AppConst.DefaultValue.schedule
                         vm.trainTime = Date()
                     } label: {
-                        Text("リセット").foregroundColor(Color.customColorPurple)
-                            .padding(.trailing)
+                        Text("リセット")
+                            .foregroundColor(.customColorPurple)
+                            .padding()
+                            .bold()
                     }
                 }
                 ForEach(0 ..< vm.subjects.count, id: \.self) { index in
                     HStack {
                         Text("\(index + 1)限目")
                             .font(.system(size: 15))
-                            .foregroundColor(Color.customColorPurple)
+                            .foregroundColor(.customColorPurple)
                             .bold()
                             .padding(.bottom)
                             .padding(.leading)
@@ -51,17 +54,13 @@ struct RevisionView<T: WeekDay>: View {
                     Button {
                         vm.scheduleListMin()
                     } label: {
-                        Image(systemName: "minus")
-                            .foregroundColor(Color.customColorPurple)
-                            .bold()
+                        MinusPlusImageView(isMinusPlus: false)
                     }.padding(.trailing).padding(.bottom)
                     // プラスボタン
                     Button {
                         vm.scheduleListMax()
                     } label: {
-                        Image(systemName: "plus")
-                            .foregroundColor(Color.customColorPurple)
-                            .bold()
+                        MinusPlusImageView(isMinusPlus: true)
                     }.padding(.trailing).padding(.bottom)
 
                 }.alert("お知らせ", isPresented: $vm.isScheduleListAlert) {
@@ -86,6 +85,7 @@ struct RevisionView<T: WeekDay>: View {
                         .background(Color.customColorPurple)
                         .foregroundColor(.white)
                         .cornerRadius(30)
+                        .padding()
                 }
             }.onAppear { vm.readSchedule(weekDayModel: weekDayModel) }
         }

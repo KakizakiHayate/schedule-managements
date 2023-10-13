@@ -7,6 +7,7 @@
 
 import Foundation
 
+@MainActor
 class RevisionViewModel<T: WeekDay>: ObservableObject {
     // MARK: - Property Wrappers
     @Published var subjects = [String]()
