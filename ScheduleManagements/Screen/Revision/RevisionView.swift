@@ -11,8 +11,6 @@ import RealmSwift
 /// 教科と電車時刻を修正画面
 struct RevisionView<T: WeekDay>: View {
     // MARK: - Property Wrappers
-    @State private var showingAlertPlus = false
-    @State private var showingAlertMinus = false
     @Binding var showRevisionSheet: Bool
     @Binding var weekDayModel: T
     @StateObject private var vm = RevisionViewModel<T>()
@@ -41,7 +39,6 @@ struct RevisionView<T: WeekDay>: View {
                             .bold()
                             .padding(.bottom)
                             .padding(.leading)
-                        // このtext: は、Binding<String>になっているから入力させるなら今の状態ならOK
                         TextField("未入力", text: $vm.subjects[index])
                             .textFieldStyle(RoundedBorderTextFieldStyle())
                             .padding(.bottom)
@@ -52,52 +49,34 @@ struct RevisionView<T: WeekDay>: View {
                     Spacer()
                     // マイナスボタン
                     Button {
-                        // 最低1まで来たら減らせない
-                        if vm.subjects.count == 1 {
-                            showingAlertMinus = true
-                        } else {
-                            vm.subjects.removeLast()
-                        }
+                        vm.scheduleListMin()
                     } label: {
                         Image(systemName: "minus")
                             .foregroundColor(Color.customColorPurple)
                             .bold()
-                    }
-                    .padding(.trailing).padding(.bottom)
-                    .alert("お知らせ", isPresented: $showingAlertMinus) {
-                        Button("OK") {}
-                    } message: {
-                        Text("これ以上削除できません")
-                    }
+                    }.padding(.trailing).padding(.bottom)
                     // プラスボタン
                     Button {
-                        // 最大10まで来たら増やせない
-                        if vm.subjects.count == 10 {
-                            showingAlertPlus = true
-                        } else {
-                            vm.subjects.append("")
-                        }
+                        vm.scheduleListMax()
                     } label: {
                         Image(systemName: "plus")
                             .foregroundColor(Color.customColorPurple)
                             .bold()
-                    }
-                    .padding(.trailing).padding(.bottom)
-                    .alert("お知らせ", isPresented: $showingAlertPlus) {
-                        Button("OK") {}
-                    } message: {
-                        Text("これ以上増やせません")
-                    }
+                    }.padding(.trailing).padding(.bottom)
+
+                }.alert("お知らせ", isPresented: $vm.isScheduleListAlert) {
+                    Button("OK") {}
+                } message: {
+                    Text("\(vm.scheduleListUpperLimit)")
                 }
                 Spacer()
                 DatePicker("電車の時間",
                            selection: $vm.trainTime,
-                           displayedComponents: .hourAndMinute)
-                    .padding()
+                           displayedComponents: .hourAndMinute
+                ).padding()
                 Button {
                     // 設定完了したらsheetを閉じる
                     showRevisionSheet = false
-                    
                     weekDayModel.addSchedule(weekDayModel: &weekDayModel,
                                              subjects: vm.subjects,
                                              trainTime: vm.trainTime)
