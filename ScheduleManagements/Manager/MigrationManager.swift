@@ -13,7 +13,7 @@ final class MigrationManager: ObservableObject {
     @Published private(set) var version = UInt64(2)
     // MARK: - Properties
     static let shared = MigrationManager()
-    
+
     // MARK: - Initialize
     private init() {}
 }

@@ -24,7 +24,7 @@ struct OneWeekSelectView: View {
     var body: some View {
         NavigationStack {
             ZStack {
-                LinearGradient(gradient: Gradient(colors: [Color.customColorPurple,
+                LinearGradient(gradient: Gradient(colors: [.customColorPurple,
                                                            .white]),
                                startPoint: .top,
                                endPoint: .bottom)
