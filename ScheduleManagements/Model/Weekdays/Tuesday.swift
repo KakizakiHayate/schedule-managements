@@ -10,7 +10,7 @@ import RealmSwift
 
 class Tuesday: Object, WeekDay {
     // MARK: - Property Wrappers
-    @Persisted(primaryKey: true) var _id: ObjectId
+    @Persisted(primaryKey: true) private(set) var _id: ObjectId
     @Persisted var scheduleList = List<String>()
     @Persisted var trainTime = Date()
 }
