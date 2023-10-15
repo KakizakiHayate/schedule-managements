@@ -12,7 +12,7 @@ class Saturday: Object, WeekDay {
     // MARK: - Property Wrappers
     @Persisted(primaryKey: true) private(set) var _id: ObjectId
     @Persisted var scheduleList = List<String>()
-    @Persisted var trainTime = Date()
+    @Persisted var trainTime: Date?
 }
 
 extension Saturday: ObjectKeyIdentifiable {}
