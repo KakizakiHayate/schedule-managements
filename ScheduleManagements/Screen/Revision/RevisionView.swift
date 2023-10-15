@@ -26,7 +26,7 @@ struct RevisionView<T: WeekDay>: View {
                     Button {
                         // 以下2行は、メソッド化できる
                         vm.subjects = AppConst.DefaultValue.schedule
-                        vm.trainTime = Date()
+                        vm.trainTime = nil
                     } label: {
                         Text("リセット")
                             .foregroundColor(.customColorPurple)
@@ -70,9 +70,11 @@ struct RevisionView<T: WeekDay>: View {
                 }
                 Spacer()
                 DatePicker("電車の時間",
-                           selection: $vm.trainTime,
-                           displayedComponents: .hourAndMinute
-                ).padding()
+                           selection: Binding(
+                               get: { return vm.trainTime ?? Date() },
+                               set: { vm.trainTime = $0 }
+                           ),
+                           displayedComponents: .hourAndMinute)
                 Button {
                     // 設定完了したらsheetを閉じる
                     showRevisionSheet = false

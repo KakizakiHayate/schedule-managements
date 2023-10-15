@@ -13,14 +13,14 @@ protocol WeekDay where Self: Object {
     // MARK: - Properties
     var _id: ObjectId { get }
     var scheduleList: List<String> { get set }
-    var trainTime: Date { get set }
+    var trainTime: Date? { get set }
 }
 
 extension WeekDay {
     // MARK: - Methods
     func addSchedule<T: WeekDay>(weekDayModel: inout T,
                                  subjects: [String],
-                                 trainTime: Date
+                                 trainTime: Date?
     ) {
         if var lastObject = RealmCRUD.realmRead(weekModel: T.self) {
             // リセットボタンを押した時の処理
@@ -50,6 +50,7 @@ extension WeekDay {
             let newObject = newObjectAdd(weekDayModel: weekDayModel,
                                          subjects: subjects,
                                          trainTime: trainTime)
+
             RealmCRUD.realmAdd(weekModel: newObject)
         }
     }
@@ -57,7 +58,7 @@ extension WeekDay {
     /// realmで追加するときに使う
     private func newObjectAdd<T: WeekDay>(weekDayModel: T,
                                           subjects: [String],
-                                          trainTime: Date
+                                          trainTime: Date?
     ) -> T {
         let newObject = T.init()
         subjects.forEach {
@@ -68,7 +69,7 @@ extension WeekDay {
         return newObject
     }
 
-    func readSchedule<T: WeekDay>(weekModel _: T) -> (List<String>, Date) {
+    func readSchedule<T: WeekDay>(weekModel _: T) -> (List<String>, Date?) {
         if let lastObject = RealmCRUD.realmRead(weekModel: T.self) {
             return (lastObject.scheduleList, lastObject.trainTime)
         } else {
@@ -76,7 +77,7 @@ extension WeekDay {
             (0 ..< 6).forEach { _ in
                 emptyList.append("")
             }
-            return (emptyList, Date())
+            return (emptyList, nil)
         }
     }
 
