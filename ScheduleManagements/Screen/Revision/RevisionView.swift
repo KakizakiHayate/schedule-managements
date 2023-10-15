@@ -7,6 +7,7 @@
 
 import SwiftUI
 import RealmSwift
+import Combine
 
 /// 教科と電車時刻を修正画面
 struct RevisionView<T: WeekDay>: View {
@@ -24,14 +25,22 @@ struct RevisionView<T: WeekDay>: View {
                 HStack {
                     Spacer()
                     Button {
-                        // 以下2行は、メソッド化できる
-                        vm.subjects = AppConst.DefaultValue.schedule
-                        vm.trainTime = nil
+                        vm.isResetConfirmation.toggle()
                     } label: {
                         Text("リセット")
                             .foregroundColor(.customColorPurple)
                             .padding()
                             .bold()
+                    }.alert("確認", isPresented: $vm.isResetConfirmation) {
+                        Button("キャンセル") {}
+                        Button {
+                            vm.subjects = AppConst.DefaultValue.schedule
+                            vm.trainTime = nil
+                        } label: {
+                            Text("OK")
+                        }
+                    } message: {
+                        Text("本当にリセットしますか？")
                     }
                 }
                 ForEach(0 ..< vm.subjects.count, id: \.self) { index in
@@ -46,6 +55,18 @@ struct RevisionView<T: WeekDay>: View {
                             .textFieldStyle(RoundedBorderTextFieldStyle())
                             .padding(.bottom)
                             .padding(.trailing)
+                            .onReceive(Just(vm.subjects[index])) { _ in
+                                if vm.textFieldLimit <
+                                    vm.subjects[index].count {
+                                    vm.subjects[index] = String(vm.subjects[index].prefix(vm.textFieldLimit))
+                                    vm.isTextFieldAlert.toggle()
+                                }
+                            }
+                            .alert("注意", isPresented: $vm.isTextFieldAlert) {
+                                Button("OK") {}
+                            } message: {
+                                Text("これ以上入力できません")
+                            }
                     }
                 }
                 HStack {
@@ -75,6 +96,7 @@ struct RevisionView<T: WeekDay>: View {
                                set: { vm.trainTime = $0 }
                            ),
                            displayedComponents: .hourAndMinute)
+                .padding()
                 Button {
                     // 設定完了したらsheetを閉じる
                     showRevisionSheet = false

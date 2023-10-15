@@ -14,6 +14,10 @@ class RevisionViewModel<T: WeekDay>: ObservableObject {
     @Published var trainTime: Date?
     @Published var isScheduleListAlert = false
     @Published var scheduleListUpperLimit = ""
+    @Published var isTextFieldAlert = false
+    @Published var isResetConfirmation = false
+    // MARK: - Properties
+    let textFieldLimit = 15
 }
 
 extension RevisionViewModel {
