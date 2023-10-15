@@ -11,9 +11,13 @@ import Foundation
 class RevisionViewModel<T: WeekDay>: ObservableObject {
     // MARK: - Property Wrappers
     @Published var subjects = [String]()
-    @Published var trainTime = Date()
+    @Published var trainTime: Date?
     @Published var isScheduleListAlert = false
     @Published var scheduleListUpperLimit = ""
+    @Published var isTextFieldAlert = false
+    @Published var isResetConfirmation = false
+    // MARK: - Properties
+    let textFieldLimit = 15
 }
 
 extension RevisionViewModel {
@@ -21,7 +25,12 @@ extension RevisionViewModel {
     func readSchedule(weekDayModel: T) {
         let (subjects, trainTime) = weekDayModel.readSchedule(weekModel: weekDayModel)
         self.subjects = subjects.map { $0 }
-        self.trainTime = trainTime
+        if let trainTime {
+            self.trainTime = trainTime
+        } else {
+            self.trainTime = Date()
+        }
+
     }
 
     func scheduleListMin() {

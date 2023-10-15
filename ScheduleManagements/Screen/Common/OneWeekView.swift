@@ -47,10 +47,10 @@ struct OneWeekView<T: WeekDay>: View {
                                     .foregroundColor(.customColorPurple)
                                     .font(.system(size: 30.0))
                                 // TODO: ここの判定は修正が必要
-                                if vm.trainTime == Date() {
+                                if vm.trainTime == nil {
                                     Text("電車の時刻が未設定です")
                                 } else {
-                                    Text("\(dateManager.sharedDate().string(from: vm.trainTime))の電車です")
+                                    Text("\(dateManager.sharedDate().string(from: vm.trainTime ?? Date()))の電車です")
                                 }
                             }
                         } header: {

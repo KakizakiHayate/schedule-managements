@@ -12,7 +12,7 @@ import RealmSwift
 class OneWeekViewModel<T: WeekDay>: ObservableObject {
     // MARK: - Property Wrappers
     @Published var showRevisionSheet = false
-    @Published var trainTime = Date()
+    @Published var trainTime: Date?
     @Published var subjects = [String]()
     // MARK: - Properties
     var weekDayModel = T.init()

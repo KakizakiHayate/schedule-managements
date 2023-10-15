@@ -26,7 +26,7 @@ extension RealmCRUD {
 
     class func realmUpdate<T: WeekDay>(weekModel: inout T,
                                        subjects: [String],
-                                       trainTime: Date
+                                       trainTime: Date?
     ) {
         guard let localRealm = try? Realm() else { return }
         do {
