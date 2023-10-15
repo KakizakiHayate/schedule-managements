@@ -10,7 +10,7 @@ import Foundation
 /// RealmのマイグレーションManagerクラス
 final class MigrationManager: ObservableObject {
     // MARK: - Property Wrappers
-    @Published private(set) var version = UInt64(2)
+    @Published private(set) var version = UInt64(3)
     // MARK: - Properties
     static let shared = MigrationManager()
 
