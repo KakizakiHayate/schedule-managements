@@ -92,17 +92,18 @@ struct RevisionView<T: WeekDay>: View {
                 Spacer()
                 DatePicker("電車の時間",
                            selection: Binding(
-                               get: { return vm.trainTime ?? Date() },
-                               set: { vm.trainTime = $0 }
+                            get: { return vm.trainTime ?? Date() },
+                            set: { vm.trainTime = $0 }
                            ),
                            displayedComponents: .hourAndMinute)
                 .padding()
                 Button {
-                    // 設定完了したらsheetを閉じる
                     showRevisionSheet = false
-                    weekDayModel.addSchedule(weekDayModel: &weekDayModel,
-                                             subjects: vm.subjects,
-                                             trainTime: vm.trainTime)
+                    Task {
+                        await weekDayModel.addSchedule(weekDayModel: weekDayModel,
+                                                       subjects: vm.subjects,
+                                                       trainTime: vm.trainTime)
+                    }
                 } label: {
                     Text("変更完了")
                         .padding()
@@ -111,7 +112,11 @@ struct RevisionView<T: WeekDay>: View {
                         .cornerRadius(30)
                         .padding()
                 }
-            }.onAppear { vm.readSchedule(weekDayModel: weekDayModel) }
+            }.onAppear {
+                Task {
+                    await vm.readSchedule(weekDayModel: weekDayModel)
+                }
+            }
         }
     } // body
 } // view

@@ -46,7 +46,6 @@ struct OneWeekView<T: WeekDay>: View {
                                 Image(systemName: "train.side.front.car")
                                     .foregroundColor(.customColorPurple)
                                     .font(.system(size: 30.0))
-                                // TODO: ここの判定は修正が必要
                                 if vm.trainTime == nil {
                                     Text("電車の時刻が未設定です")
                                 } else {
@@ -73,12 +72,19 @@ struct OneWeekView<T: WeekDay>: View {
                         // subjectArrayは、TextFieldのtext:の型がBinding<String>だから渡す必要がある
                         RevisionView<T>(showRevisionSheet: $vm.showRevisionSheet,
                                         weekDayModel: $vm.weekDayModel)
-                        .onDisappear { vm.readSchedule(weekDayModel: vm.weekDayModel) }
+                        .onDisappear {
+                            Task {
+                                await vm.readSchedule(weekDayModel: vm.weekDayModel)
+                            }
+                        }
                     }
                 }
             }
-        }.onAppear { vm.readSchedule(weekDayModel: vm.weekDayModel )
-    }
+        }.onAppear {
+            Task {
+                await vm.readSchedule(weekDayModel: vm.weekDayModel)
+            }
+        }
     } // body
 } // view
 
