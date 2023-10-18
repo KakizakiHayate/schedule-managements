@@ -9,12 +9,13 @@ import Foundation
 import RealmSwift
 
 /// Realmの共通CRUD
+@MainActor
 public class RealmCRUD {}
 
 extension RealmCRUD {
     // MARK: - Methods
-    class func realmAdd<T: Object>(weekModel: T) {
-        guard let localRealm = try? Realm() else { return }
+    class func realmAdd<T: Object>(weekModel: T) async {
+        guard let localRealm = try? await Realm() else { return }
         do {
             try localRealm.write {
                 localRealm.add(weekModel)
@@ -24,11 +25,11 @@ extension RealmCRUD {
         }
     }
 
-    class func realmUpdate<T: WeekDay>(weekModel: inout T,
+    class func realmUpdate<T: WeekDay>(weekModel: T,
                                        subjects: [String],
                                        trainTime: Date?
-    ) {
-        guard let localRealm = try? Realm() else { return }
+    ) async {
+        guard let localRealm = try? await Realm() else { return }
         do {
             try localRealm.write {
                 (0 ..< subjects.count).forEach {
@@ -41,8 +42,8 @@ extension RealmCRUD {
         }
     }
 
-    class func realmDelete<T: Object>(weekModel: T.Type) {
-        guard let localRealm = try? Realm() else { return }
+    class func realmDelete<T: Object>(weekModel: T.Type) async {
+        guard let localRealm = try? await Realm() else { return }
         let allObjct = localRealm.objects(weekModel)
         do {
             try localRealm.write {
@@ -53,8 +54,8 @@ extension RealmCRUD {
         }
     }
 
-    class func realmRead<T: Object>(weekModel: T.Type) -> T? {
-        guard let localRealm = try? Realm() else { return nil }
+    class func realmRead<T: Object>(weekModel: T.Type) async -> T? {
+        guard let localRealm = try? await Realm() else { return nil }
         guard let lastObject = localRealm.objects(weekModel).last else { return nil }
 
         return lastObject

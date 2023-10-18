@@ -22,8 +22,8 @@ class RevisionViewModel<T: WeekDay>: ObservableObject {
 
 extension RevisionViewModel {
     // MARK: - Methods
-    func readSchedule(weekDayModel: T) {
-        let (subjects, trainTime) = weekDayModel.readSchedule(weekModel: weekDayModel)
+    func readSchedule(weekDayModel: T) async {
+        let (subjects, trainTime) = await weekDayModel.readSchedule(weekModel: weekDayModel)
         self.subjects = subjects.map { $0 }
         if let trainTime {
             self.trainTime = trainTime
