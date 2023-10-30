@@ -23,4 +23,4 @@ jobs:
         pod install
 
     - name: Build and Test
-      run: xcodebuild -workspace ScheduleManagements.xcworkspace -scheme ScheduleManagements -destination "platform=iOS Simulator,OS=16.0,name=iPhone 15" build test
+      run: xcodebuild -workspace ScheduleManagements.xcworkspace -scheme ScheduleManagements -destination "platform=iOS Simulator,OS=16.0,name=iPhone 13" build test
