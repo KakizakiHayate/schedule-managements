@@ -17,4 +17,4 @@ jobs:
         with:
           xcode-version: '14.3.1'
       - name: xcode build
-        run: xcodebuild -project AppGithubActions01.xcodeproj -scheme AppGithubActions01 -destination "platform=iOS Simulator,OS=16.0,name=iPhone 15" build
+        run: xcodebuild -project ScheduleManagements.xcodeproj -scheme ScheduleManagements -destination "platform=iOS Simulator,OS=16.0,name=iPhone 15" build
