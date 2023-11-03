@@ -16,6 +16,12 @@ jobs:
         uses: maxim-lobanov/setup-xcode@v1
         with:
           xcode-version: '15.0.0'
+      - name: brew install rbenv
+        run: brew install rbenv
+      - name: install rbenv version
+        run: | 
+          rbenv install 3.2.2
+          rbenv local 3.2.2
       - name: install bundler
         run: gem install bundler
       - name: install cocoapods
