@@ -9,4 +9,5 @@ import SwiftUI
 
 extension Color {
     static let customColorPurple = Color(red: 100 / 255, green: 80 / 255, blue: 255 / 255)
+    static let revisionBackgroundColor = Color(red: 245 / 255, green: 245 / 255, blue: 245 / 255)
 }
