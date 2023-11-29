@@ -29,6 +29,8 @@ jobs:
           echo ${{ secrets.PROVISIONING_PROFILE }} | base64 --decode > profile.mobileprovision
           mkdir -p ~/Library/MobileDevice/Provisioning\ Profiles
           mv profile.mobileprovision ~/Library/MobileDevice/Provisioning\ Profiles/
+      - name: set up
+        run: make set_up
       - name: xcode clean build
         run: xcodebuild clean -project ScheduleManagements.xcodeproj
       - name: xcode build
