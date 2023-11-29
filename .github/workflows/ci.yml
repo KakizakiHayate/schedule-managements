@@ -31,6 +31,8 @@ jobs:
           mv profile.mobileprovision ~/Library/MobileDevice/Provisioning\ Profiles/
       - name: set up
         run: make set_up
+      - name: pod install
+        run: bundle exec pod install
       - name: xcode clean build
         run: xcodebuild clean -project ScheduleManagements.xcodeproj
       - name: xcode build
