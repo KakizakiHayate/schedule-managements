@@ -12,7 +12,7 @@ struct ResultSet: Decodable {
     let max: String
     let offset: String
     let engineVersion: String
-    let point: [Point]
+    let point: [Point]?
 
     enum CodingKeys: String, CodingKey {
         case apiVersion
