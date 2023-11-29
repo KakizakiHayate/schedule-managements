@@ -24,9 +24,20 @@
 		75482C272AD811A100B3C238 /* Saturday.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75482C262AD811A100B3C238 /* Saturday.swift */; };
 		75482C292AD811B400B3C238 /* Sunday.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75482C282AD811B400B3C238 /* Sunday.swift */; };
 		75482C2B2AD835F500B3C238 /* TextWeekdaySelectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75482C2A2AD835F500B3C238 /* TextWeekdaySelectView.swift */; };
+		757C4EE62B0C61B400E69D1A /* StationSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757C4EE52B0C61B400E69D1A /* StationSettingView.swift */; };
+		75C6E1392B1258740049F5CC /* StationSettingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C6E1382B1258740049F5CC /* StationSettingViewModel.swift */; };
+		75C6E13F2B1304380049F5CC /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C6E13E2B1304380049F5CC /* APIError.swift */; };
+		75C6E1422B1319430049F5CC /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C6E1412B1319430049F5CC /* Logger.swift */; };
+		75C6E1452B131F4B0049F5CC /* StationNameAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C6E1442B131F4A0049F5CC /* StationNameAPI.swift */; };
+		75C6E1482B13207E0049F5CC /* ResultSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C6E1472B13207E0049F5CC /* ResultSet.swift */; };
+		75C6E14A2B1321170049F5CC /* Point.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C6E1492B1321170049F5CC /* Point.swift */; };
+		75C6E14C2B1321AB0049F5CC /* Station.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C6E14B2B1321AB0049F5CC /* Station.swift */; };
+		75C6E14E2B13227D0049F5CC /* Prefecture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C6E14D2B13227D0049F5CC /* Prefecture.swift */; };
 		75D2758F2ACDD83F004DC5A0 /* ScheduleManagementsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D2758E2ACDD83F004DC5A0 /* ScheduleManagementsApp.swift */; };
 		75D275932ACDD842004DC5A0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 75D275922ACDD842004DC5A0 /* Assets.xcassets */; };
 		75D275962ACDD842004DC5A0 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 75D275952ACDD842004DC5A0 /* Preview Assets.xcassets */; };
+		75D3BE0A2B134A8200243C56 /* Extension+View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D3BE092B134A8200243C56 /* Extension+View.swift */; };
+		75D4152B2B10D1CE003583AF /* StationSelectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D4152A2B10D1CE003583AF /* StationSelectView.swift */; };
 		75E786AD2AD99098005176A2 /* UIDeviceSizeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E786AC2AD99098005176A2 /* UIDeviceSizeManager.swift */; };
 		75E786AF2AD99910005176A2 /* MinusPlusImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E786AE2AD99910005176A2 /* MinusPlusImageView.swift */; };
 		75FA20022AD30A56000B5B86 /* Tuesday.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75FA20012AD30A56000B5B86 /* Tuesday.swift */; };
@@ -54,10 +65,21 @@
 		75482C262AD811A100B3C238 /* Saturday.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Saturday.swift; sourceTree = "<group>"; };
 		75482C282AD811B400B3C238 /* Sunday.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sunday.swift; sourceTree = "<group>"; };
 		75482C2A2AD835F500B3C238 /* TextWeekdaySelectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextWeekdaySelectView.swift; sourceTree = "<group>"; };
+		757C4EE52B0C61B400E69D1A /* StationSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationSettingView.swift; sourceTree = "<group>"; };
+		75C6E1382B1258740049F5CC /* StationSettingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationSettingViewModel.swift; sourceTree = "<group>"; };
+		75C6E13E2B1304380049F5CC /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
+		75C6E1412B1319430049F5CC /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
+		75C6E1442B131F4A0049F5CC /* StationNameAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationNameAPI.swift; sourceTree = "<group>"; };
+		75C6E1472B13207E0049F5CC /* ResultSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultSet.swift; sourceTree = "<group>"; };
+		75C6E1492B1321170049F5CC /* Point.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Point.swift; sourceTree = "<group>"; };
+		75C6E14B2B1321AB0049F5CC /* Station.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Station.swift; sourceTree = "<group>"; };
+		75C6E14D2B13227D0049F5CC /* Prefecture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Prefecture.swift; sourceTree = "<group>"; };
 		75D2758B2ACDD83F004DC5A0 /* ScheduleManagements.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ScheduleManagements.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		75D2758E2ACDD83F004DC5A0 /* ScheduleManagementsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleManagementsApp.swift; sourceTree = "<group>"; };
 		75D275922ACDD842004DC5A0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		75D275952ACDD842004DC5A0 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		75D3BE092B134A8200243C56 /* Extension+View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+View.swift"; sourceTree = "<group>"; };
+		75D4152A2B10D1CE003583AF /* StationSelectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationSelectView.swift; sourceTree = "<group>"; };
 		75E786AC2AD99098005176A2 /* UIDeviceSizeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIDeviceSizeManager.swift; sourceTree = "<group>"; };
 		75E786AE2AD99910005176A2 /* MinusPlusImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinusPlusImageView.swift; sourceTree = "<group>"; };
 		75FA20012AD30A56000B5B86 /* Tuesday.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tuesday.swift; sourceTree = "<group>"; };
@@ -115,6 +137,7 @@
 		751128602AD292C100DA71DA /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				75D415292B10D0FE003583AF /* NavigationLink */,
 				751128612AD294B500DA71DA /* OneWeekView.swift */,
 				751128632AD2959800DA71DA /* OneWeekViewModel.swift */,
 				75482C2C2AD8389000B3C238 /* TextView */,
@@ -128,6 +151,7 @@
 				751128662AD29A3A00DA71DA /* RevisionView.swift */,
 				75482C0E2AD53B0B00B3C238 /* RevisionViewModel.swift */,
 				75E786B02AD99919005176A2 /* ImageView */,
+				75C6E13A2B1258810049F5CC /* StationSetting */,
 			);
 			path = Revision;
 			sourceTree = "<group>";
@@ -135,6 +159,7 @@
 		751128682AD29ABC00DA71DA /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				75C6E1432B131F220049F5CC /* Service */,
 				751128692AD29B1F00DA71DA /* Weekdays */,
 			);
 			path = Model;
@@ -166,6 +191,7 @@
 			isa = PBXGroup;
 			children = (
 				751128712AD29E4200DA71DA /* Extension+Color.swift */,
+				75D3BE092B134A8200243C56 /* Extension+View.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -173,8 +199,8 @@
 		751128732AD2A27B00DA71DA /* Util */ = {
 			isa = PBXGroup;
 			children = (
-				751128742AD2A31300DA71DA /* RealmCRUD.swift */,
-				75482C202AD7EC7A00B3C238 /* AppConst.swift */,
+				75C6E13D2B1303FF0049F5CC /* Service */,
+				75C6E13C2B1302750049F5CC /* Const */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -203,6 +229,69 @@
 				75482C2A2AD835F500B3C238 /* TextWeekdaySelectView.swift */,
 			);
 			path = TextView;
+			sourceTree = "<group>";
+		};
+		75C6E13A2B1258810049F5CC /* StationSetting */ = {
+			isa = PBXGroup;
+			children = (
+				757C4EE52B0C61B400E69D1A /* StationSettingView.swift */,
+				75C6E1382B1258740049F5CC /* StationSettingViewModel.swift */,
+			);
+			path = StationSetting;
+			sourceTree = "<group>";
+		};
+		75C6E13B2B1300930049F5CC /* Error */ = {
+			isa = PBXGroup;
+			children = (
+				75C6E13E2B1304380049F5CC /* APIError.swift */,
+			);
+			path = Error;
+			sourceTree = "<group>";
+		};
+		75C6E13C2B1302750049F5CC /* Const */ = {
+			isa = PBXGroup;
+			children = (
+				75482C202AD7EC7A00B3C238 /* AppConst.swift */,
+				75C6E1402B1309400049F5CC /* Logger */,
+				75C6E13B2B1300930049F5CC /* Error */,
+			);
+			path = Const;
+			sourceTree = "<group>";
+		};
+		75C6E13D2B1303FF0049F5CC /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				751128742AD2A31300DA71DA /* RealmCRUD.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		75C6E1402B1309400049F5CC /* Logger */ = {
+			isa = PBXGroup;
+			children = (
+				75C6E1412B1319430049F5CC /* Logger.swift */,
+			);
+			path = Logger;
+			sourceTree = "<group>";
+		};
+		75C6E1432B131F220049F5CC /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				75C6E1462B131FAB0049F5CC /* StationAPI */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		75C6E1462B131FAB0049F5CC /* StationAPI */ = {
+			isa = PBXGroup;
+			children = (
+				75C6E1442B131F4A0049F5CC /* StationNameAPI.swift */,
+				75C6E1472B13207E0049F5CC /* ResultSet.swift */,
+				75C6E1492B1321170049F5CC /* Point.swift */,
+				75C6E14B2B1321AB0049F5CC /* Station.swift */,
+				75C6E14D2B13227D0049F5CC /* Prefecture.swift */,
+			);
+			path = StationAPI;
 			sourceTree = "<group>";
 		};
 		75D275822ACDD83F004DC5A0 = {
@@ -245,6 +334,14 @@
 				75D275952ACDD842004DC5A0 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		75D415292B10D0FE003583AF /* NavigationLink */ = {
+			isa = PBXGroup;
+			children = (
+				75D4152A2B10D1CE003583AF /* StationSelectView.swift */,
+			);
+			path = NavigationLink;
 			sourceTree = "<group>";
 		};
 		75E786B02AD99919005176A2 /* ImageView */ = {
@@ -388,14 +485,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				75C6E14E2B13227D0049F5CC /* Prefecture.swift in Sources */,
 				751128672AD29A3A00DA71DA /* RevisionView.swift in Sources */,
 				75482C252AD8117900B3C238 /* Friday.swift in Sources */,
 				75482C212AD7EC7A00B3C238 /* AppConst.swift in Sources */,
+				75D3BE0A2B134A8200243C56 /* Extension+View.swift in Sources */,
+				75C6E1392B1258740049F5CC /* StationSettingViewModel.swift in Sources */,
+				75C6E1422B1319430049F5CC /* Logger.swift in Sources */,
+				757C4EE62B0C61B400E69D1A /* StationSettingView.swift in Sources */,
 				751128752AD2A31300DA71DA /* RealmCRUD.swift in Sources */,
 				7511286B2AD29BCC00DA71DA /* Monday.swift in Sources */,
 				75482C0F2AD53B0B00B3C238 /* RevisionViewModel.swift in Sources */,
+				75D4152B2B10D1CE003583AF /* StationSelectView.swift in Sources */,
 				75D2758F2ACDD83F004DC5A0 /* ScheduleManagementsApp.swift in Sources */,
 				75E786AD2AD99098005176A2 /* UIDeviceSizeManager.swift in Sources */,
+				75C6E1482B13207E0049F5CC /* ResultSet.swift in Sources */,
+				75C6E1452B131F4B0049F5CC /* StationNameAPI.swift in Sources */,
 				751128622AD294B500DA71DA /* OneWeekView.swift in Sources */,
 				75E786AF2AD99910005176A2 /* MinusPlusImageView.swift in Sources */,
 				75482C122AD5504600B3C238 /* WeekDay.swift in Sources */,
@@ -406,10 +511,13 @@
 				751128642AD2959800DA71DA /* OneWeekViewModel.swift in Sources */,
 				75482C232AD8114500B3C238 /* Thursday.swift in Sources */,
 				75482C292AD811B400B3C238 /* Sunday.swift in Sources */,
+				75C6E14C2B1321AB0049F5CC /* Station.swift in Sources */,
 				75482C0D2AD5132300B3C238 /* MigrationManager.swift in Sources */,
 				75482C272AD811A100B3C238 /* Saturday.swift in Sources */,
+				75C6E14A2B1321170049F5CC /* Point.swift in Sources */,
 				75482C2B2AD835F500B3C238 /* TextWeekdaySelectView.swift in Sources */,
 				751128722AD29E4200DA71DA /* Extension+Color.swift in Sources */,
+				75C6E13F2B1304380049F5CC /* APIError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
