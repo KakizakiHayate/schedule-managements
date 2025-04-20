@@ -8,6 +8,7 @@
 import SwiftUI
 import RealmSwift
 import Combine
+import StoreKit
 
 /// 教科と電車時刻を修正画面
 struct RevisionView<T: WeekDay>: View {
@@ -103,6 +104,8 @@ struct RevisionView<T: WeekDay>: View {
                         await weekDayModel.addSchedule(weekDayModel: weekDayModel,
                                                        subjects: vm.subjects,
                                                        trainTime: vm.trainTime)
+                        // 保存ボタンのタップ回数を増やし、レビュー依頼を表示するかチェック
+                        incrementSaveButtonTapCount()
                     }
                 } label: {
                     Text("変更完了")
@@ -119,6 +122,36 @@ struct RevisionView<T: WeekDay>: View {
             }
         }
     } // body
+    
+    // MARK: - Methods
+    
+    /// 変更完了ボタン押下回数をカウントアップしてレビュー依頼を表示
+    private func incrementSaveButtonTapCount() {
+        let key = AppConst.UserDefaultsKeys.saveButtonTapCount
+        let currentCount = UserDefaults.standard.integer(forKey: key)
+        let newCount = currentCount + 1
+        UserDefaults.standard.set(newCount, forKey: key)
+        
+        // 5回目または25回目の変更完了ボタン押下時にレビューリクエストを表示
+        if [5, 25].contains(newCount) {
+            let requestedKey = AppConst.UserDefaultsKeys.reviewRequested
+            let requestedCounts = UserDefaults.standard.array(forKey: requestedKey) as? [Int] ?? []
+            
+            if !requestedCounts.contains(newCount) {
+                // レビュー済みとして記録
+                var updatedRequestedCounts = requestedCounts
+                updatedRequestedCounts.append(newCount)
+                UserDefaults.standard.set(updatedRequestedCounts, forKey: requestedKey)
+                
+                // レビューをリクエスト
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                    if let scene = UIApplication.shared.connectedScenes.first(where: { $0.activationState == .foregroundActive }) as? UIWindowScene {
+                        SKStoreReviewController.requestReview(in: scene)
+                    }
+                }
+            }
+        }
+    }
 } // view
 
 // MARK: - Preview
