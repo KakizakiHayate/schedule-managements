@@ -31,4 +31,11 @@ enum AppConst {
     enum Empty {
         static let emptyText = ""
     }
+    
+    // MARK: - UserDefaultsKeys
+    enum UserDefaultsKeys {
+        static let launchCount = "launchCount"
+        static let reviewRequested = "reviewRequested"
+        static let saveButtonTapCount = "saveButtonTapCount"
+    }
 }
